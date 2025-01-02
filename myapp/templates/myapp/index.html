@@ -1,0 +1,113 @@
+<!-- index.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tim Robotika Humanoid Sepak Bola</title>
+    <link rel="stylesheet" href="{% static 'myapp/css/output.css' %}">
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+    <!-- Hero Section -->
+    <section id="hero" class="bg-red-700 text-white text-center py-20">
+        <div class="hero-content">
+            <h1 class="text-3xl md:text-5xl font-bold mb-5">
+                THE ONLY HUMANOID ROBOTICS TEAM IN UNIVERSITAS INDONESIA
+            </h1>
+            <p class="text-xl md:text-2xl italic">
+                "Menyongsong masa depan sepak bola, di mana manusia dan robot bertanding bersama!"
+            </p>
+        </div>
+    </section>
+
+    <!-- Problem Agitation -->
+    <section id="problem-agitation" class="bg-yellow-400 py-12 text-center">
+        <h2 class="text-2xl md:text-4xl font-bold mb-5">Masalah yang Kami Pecahkan</h2>
+        <p class="text-lg md:text-xl max-w-3xl mx-auto">
+            RoboCup adalah inisiatif ilmiah internasional yang bertujuan untuk memajukan robot cerdas. 
+            Visi kami adalah menciptakan tim robot yang dapat mengalahkan juara Piala Dunia Sepak Bola 
+            pada tahun 2050. Kami berkomitmen untuk merealisasikan visi ini dengan mengembangkan teknologi 
+            robot humanoid untuk sepak bola.
+        </p>
+    </section>
+
+    <!-- Social Proof -->
+    <section id="social-proof" class="py-12 bg-gray-200 text-center">
+        <h2 class="text-2xl md:text-4xl font-bold mb-5">Partner & Penghargaan</h2>
+        <div class="logos flex justify-center gap-5">
+            <img src="path-to-partner-logo-1.png" alt="Partner 1" class="w-24 h-auto">
+            <img src="path-to-partner-logo-2.png" alt="Partner 2" class="w-24 h-auto">
+            <!-- Add more partner logos as needed -->
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-12 bg-white text-center">
+        <h2 class="text-2xl md:text-4xl font-bold mb-5">Fitur Tim Robotika Kami</h2>
+        <ul class="list-none text-lg space-y-4">
+            <li><strong>Processor:</strong> RASPI, JETSON</li>
+            <li><strong>Vision:</strong> YOLOV7</li>
+            <li><strong>Motion:</strong> C++, ROS</li>
+        </ul>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="bg-gray-100 py-12 text-center">
+        <h2 class="text-2xl md:text-4xl font-bold mb-5">Testimoni</h2>
+        <div class="testimonial">
+            <p class="text-lg italic mb-3">
+                "Tim robotika humanoid sepak bola kalian membawa inovasi yang luar biasa di dunia olahraga!"
+            </p>
+            <p class="text-xl font-semibold">
+                Nama: John Doe, <em>Alumni, 2023</em>
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-12 bg-white">
+        <h2 class="text-2xl md:text-4xl font-bold mb-5 text-center">FAQ</h2>
+        <div class="faq-item mb-6">
+            <h3 class="text-xl md:text-2xl text-red-700 font-bold mb-3 ml-5">
+                Apa yang membedakan tim kalian dengan tim robotik lainnya?
+            </h3>
+            <p class="text-lg ml-5">
+                Kami memiliki pengalaman dan teknologi mutakhir, termasuk sistem AI yang terintegrasi untuk bermain sepak bola secara otonom.
+            </p>
+        </div>
+        <div class="faq-item">
+            <h3 class="text-xl md:text-2xl text-red-700 font-bold mb-3 ml-5">
+                Bagaimana cara bergabung atau bekerja sama dengan tim kalian?
+            </h3>
+            <p class="text-lg ml-5">
+                Hubungi kami melalui kontak yang tersedia di footer untuk informasi lebih lanjut.
+            </p>
+        </div>
+    </section>
+
+    <!-- Final Call to Action -->
+    <section id="cta" class="bg-red-700 text-white text-center py-12">
+        <h2 class="text-2xl md:text-4xl font-bold mb-5">Bergabung dengan Kami</h2>
+        <p class="text-xl md:text-2xl mb-5">
+            Menjadi partner kami dalam pengembangan teknologi sepak bola robot.
+        </p>
+        <button class="bg-yellow-400 text-red-700 px-6 py-3 rounded text-lg font-bold hover:bg-yellow-300">
+            <a href="mailto:contact@timrobotika.com" class="no-underline text-red-700">Hubungi Kami</a>
+        </button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-8">
+        <div class="footer-content">
+            <p>Kontak: <a href="mailto:contact@timrobotika.com" class="text-yellow-400 hover:underline">contact@timrobotika.com</a></p>
+            <p>Alamat: Universitas Indonesia, Depok</p>
+            <div class="social-media mt-4">
+                <a href="https://facebook.com/TimRobotika" class="text-yellow-400 mx-2 hover:underline">Facebook</a>
+                <a href="https://twitter.com/TimRobotika" class="text-yellow-400 mx-2 hover:underline">Twitter</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
