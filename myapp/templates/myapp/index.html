@@ -8,84 +8,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tim Robotika Humanoid Sepak Bola</title>
     <link rel="stylesheet" href="{% static 'myapp/css/output.css' %}">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Active Link Highlighting */
+        .active {
+            color: red;
+        }
+    </style>
+
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans">
-    <!-- Hero Section -->
-    <section id="hero" class="bg-red-700 text-white text-center py-20">
-        <div class="hero-content">
-            <h1 class="text-3xl md:text-5xl font-bold mb-5">
-                THE ONLY HUMANOID ROBOTICS TEAM IN UNIVERSITAS INDONESIA
-            </h1>
-            <p class="text-xl md:text-2xl italic">
-                "Menyongsong masa depan sepak bola, di mana manusia dan robot bertanding bersama!"
-            </p>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center py-4 px-6">
+            <!-- Logo (Left Aligned) -->
+            <div class="text-2xl font-bold text-red-500">
+                <a href="#">
+                    <img src="{% static 'myapp/images/logo.png' %}" alt="Logo" class="h-12">
+                </a>
+            </div>
+            <!-- Navigation Links (Right Aligned) -->
+            <nav class="hidden md:flex space-x-8 text-red-700">
+                <a href="#home" class="menu-item hover:bg-red-700 hover:text-white px-4 py-2 rounded-full transition duration-300">Home</a>
+                <a href="#gettoknow" class="menu-item hover:bg-red-700 hover:text-white px-4 py-2 rounded-full transition duration-300">Get To Know</a>
+                <a href="#team" class="menu-item hover:bg-red-700 hover:text-white px-4 py-2 rounded-full transition duration-300">Team</a>
+                <a href="#faq" class="menu-item hover:bg-red-700 hover:text-white px-4 py-2 rounded-full transition duration-300">FAQ</a>
+            </nav>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="block md:hidden text-gray-700 focus:outline-none" id="menu-toggle">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
         </div>
-    </section>
-
-    <!-- Problem Agitation -->
-    <section id="problem-agitation" class="bg-yellow-400 py-12 text-center">
-        <h2 class="text-2xl md:text-4xl font-bold mb-5">Masalah yang Kami Pecahkan</h2>
-        <p class="text-lg md:text-xl max-w-3xl mx-auto">
-            RoboCup adalah inisiatif ilmiah internasional yang bertujuan untuk memajukan robot cerdas. 
-            Visi kami adalah menciptakan tim robot yang dapat mengalahkan juara Piala Dunia Sepak Bola 
-            pada tahun 2050. Kami berkomitmen untuk merealisasikan visi ini dengan mengembangkan teknologi 
-            robot humanoid untuk sepak bola.
-        </p>
-    </section>
-
-    <!-- Social Proof -->
-    <section id="social-proof" class="py-12 bg-gray-200 text-center">
-        <h2 class="text-2xl md:text-4xl font-bold mb-5">Partner & Penghargaan</h2>
-        <div class="logos flex justify-center gap-5">
-            <img src="path-to-partner-logo-1.png" alt="Partner 1" class="w-24 h-auto">
-            <img src="path-to-partner-logo-2.png" alt="Partner 2" class="w-24 h-auto">
-            <!-- Add more partner logos as needed -->
+        <!-- Mobile Menu -->
+        <div class="hidden bg-white md:hidden" id="mobile-menu">
+            <nav class="flex flex-col space-y-2 py-4 px-6 text-gray-700">
+                <a href="#home" class="nav-link hover:text-gray-500">Home</a>
+                <a href="#gettoknow" class="nav-link hover:text-gray-500">Get To Know</a>
+                <a href="#team" class="nav-link hover:text-gray-500">Team</a>
+                <a href="#faq" class="nav-link hover:text-gray-500">FAQ</a>
+            </nav>
         </div>
-    </section>
+    </header>
 
-    <!-- Features -->
-    <section id="features" class="py-12 bg-white text-center">
-        <h2 class="text-2xl md:text-4xl font-bold mb-5">Fitur Tim Robotika Kami</h2>
-        <ul class="list-none text-lg space-y-4">
-            <li><strong>Processor:</strong> RASPI, JETSON</li>
-            <li><strong>Vision:</strong> YOLOV7</li>
-            <li><strong>Motion:</strong> C++, ROS</li>
-        </ul>
-    </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="bg-gray-100 py-12 text-center">
-        <h2 class="text-2xl md:text-4xl font-bold mb-5">Testimoni</h2>
-        <div class="testimonial">
-            <p class="text-lg italic mb-3">
-                "Tim robotika humanoid sepak bola kalian membawa inovasi yang luar biasa di dunia olahraga!"
+        <!-- Sections -->
+        <section id="home" class="bg-red-700 text-white text-center py-20">
+            <div class="hero-content">
+                <h1 class="text-3xl md:text-5xl font-bold mb-5">
+                    THE ONLY HUMANOID ROBOTICS TEAM IN UNIVERSITAS INDONESIA
+                </h1>
+                <p class="text-xl md:text-2xl italic mb-6">
+                    "Menyongsong masa depan sepak bola, di mana manusia dan robot bertanding bersama!"
+                </p>
+            </div>
+        </section>
+        
+        
+        <section id="gettoknow" class="bg-yellow-400 py-12 text-center pt-24">
+            <h2 class="text-2xl md:text-4xl font-bold mb-5">Masalah yang Kami Pecahkan</h2>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto">
+                RoboCup adalah inisiatif ilmiah internasional yang bertujuan untuk memajukan robot cerdas. 
+                Visi kami adalah menciptakan tim robot yang dapat mengalahkan juara Piala Dunia Sepak Bola 
+                pada tahun 2050.
             </p>
-            <p class="text-xl font-semibold">
-                Nama: John Doe, <em>Alumni, 2023</em>
-            </p>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="py-12 bg-white">
-        <h2 class="text-2xl md:text-4xl font-bold mb-5 text-center">FAQ</h2>
-        <div class="faq-item mb-6">
-            <h3 class="text-xl md:text-2xl text-red-700 font-bold mb-3 ml-5">
-                Apa yang membedakan tim kalian dengan tim robotik lainnya?
-            </h3>
-            <p class="text-lg ml-5">
-                Kami memiliki pengalaman dan teknologi mutakhir, termasuk sistem AI yang terintegrasi untuk bermain sepak bola secara otonom.
-            </p>
-        </div>
-        <div class="faq-item">
-            <h3 class="text-xl md:text-2xl text-red-700 font-bold mb-3 ml-5">
-                Bagaimana cara bergabung atau bekerja sama dengan tim kalian?
-            </h3>
-            <p class="text-lg ml-5">
-                Hubungi kami melalui kontak yang tersedia di footer untuk informasi lebih lanjut.
-            </p>
-        </div>
-    </section>
+        </section>
+    
+        <section id="team" class="py-12 bg-white text-center pt-24">
+            <h2 class="text-2xl md:text-4xl font-bold mb-5">Our Team</h2>
+            <!-- Add team content here -->
+        </section>
+    
+        <section id="faq" class="py-12 bg-gray-100 text-center pt-24">
+            <h2 class="text-2xl md:text-4xl font-bold mb-5">FAQ</h2>
+            <!-- Add FAQ content here -->
+        </section>
 
     <!-- Final Call to Action -->
     <section id="cta" class="bg-red-700 text-white text-center py-12">
@@ -109,5 +112,86 @@
             </div>
         </div>
     </footer>
+
+                                 <script>
+                                    // Mobile menu toggle functionality
+                                    const menuToggle = document.getElementById('menu-toggle');
+                                    const mobileMenu = document.getElementById('mobile-menu');
+                            
+                                    menuToggle.addEventListener('click', () => {
+                                        mobileMenu.classList.toggle('hidden');
+                                    });
+                            
+                                    // Highlight active section
+                                    window.addEventListener('scroll', () => {
+                                        const sections = document.querySelectorAll('section');
+                                        const links = document.querySelectorAll('.nav-link');
+                                        let currentSection = "";
+                            
+                                        sections.forEach((section) => {
+                                            const sectionTop = section.offsetTop;
+                                            const sectionHeight = section.clientHeight;
+                                            if (scrollY >= sectionTop - sectionHeight / 3) {
+                                                currentSection = section.getAttribute("id");
+                                            }
+                                        });
+                            
+                                        links.forEach((link) => {
+                                            link.classList.remove('active');
+                                            if (link.getAttribute("href").includes(currentSection)) {
+                                                link.classList.add('active');
+                                            }
+                                        });
+                                    });
+                            
+                                      // Add event listeners to all menu items
+                              const menuItems = document.querySelectorAll('.menu-item');
+                            
+                              menuItems.forEach(item => {
+                                item.addEventListener('click', function () {
+                                  // Remove 'active' class from all items
+                                  menuItems.forEach(menuItem => {
+                                    menuItem.classList.remove('bg-red-700', 'text-white');
+                                    menuItem.classList.add('text-red-700');
+                                  });
+                                  
+                                  // Add 'active' class to the clicked item
+                                  this.classList.add('bg-red-700', 'text-white');
+                                });
+                              });
+                            
+                                  // JavaScript to control the image scroll
+                                  let currentIndex = 0;
+                                  const images = document.querySelector('.robot-images');
+                                  const totalImages = document.querySelectorAll('.robot-image').length;
+                              
+                                  // Function to scroll to the next image
+                                  function scrollToNextImage() {
+                                      currentIndex = (currentIndex + 1) % totalImages;
+                                      const offset = -currentIndex * 100; // Scroll 100% for each image
+                                      images.style.transform = `translateX(${offset}%)`; // Apply the scrolling animation
+                                  }
+                              
+                                  // Automatically scroll every 3 seconds
+                                  setInterval(scrollToNextImage, 3000); // Change image every 3 seconds
+                              
+                                  // Optionally, you can add functionality to manually control the scroll with buttons:
+                                  // const nextBtn = document.querySelector("#next-btn");
+                                  // nextBtn.addEventListener("click", scrollToNextImage);
+                            
+                                  let currentIndex = 0;
+                                  const robotImages = document.querySelector('.robot-images');
+                                  const totalRobots = document.querySelectorAll('.robot-image-wrapper').length;
+                              
+                                  // Function to scroll to the next image
+                                  function scrollToNextImage() {
+                                      currentIndex = (currentIndex + 1) % totalRobots;
+                                      const offset = -currentIndex * 100; // Scroll 100% for each image
+                                      robotImages.style.transform = `translateX(${offset}%)`; // Apply the scrolling animation
+                                  }
+                              
+                                  // Automatically scroll every 3 seconds
+                                  setInterval(scrollToNextImage, 3000); // Change image every 3 seconds 
+                                </script>
 </body>
 </html>
