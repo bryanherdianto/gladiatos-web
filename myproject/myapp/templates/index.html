@@ -1,0 +1,325 @@
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Gladiatos UI</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Teko:wght@300..700&display=swap"
+		rel="stylesheet" />
+	<style>
+		.font-teko {
+			font-family: "Teko", serif;
+			font-optical-sizing: auto;
+			font-weight: 400;
+			font-style: normal;
+		}
+
+		.font-audiowide {
+			font-family: "Audiowide", serif;
+			font-weight: 400;
+			font-style: normal;
+		}
+	</style>
+	{% tailwind_css %}
+</head>
+
+<body class="bg-black flex justify-center w-full">
+	<img class="absolute top-[156px]"
+			src="{% static 'images/background.svg' %}" alt="Group" />
+	<section id="top" class="overflow-hidden w-full h-[1385px] relative">
+		<nav class="absolute w-full h-[136px] top-0 left-0 flex justify-center">
+			<div class="relative w-full h-[134px]">
+				<img class="absolute w-full top-0 left-0 object-cover" src="{% static 'images/Group 34.svg' %}"
+					alt="Group" style="min-width: 1440px; height: auto" />
+				<img class="absolute w-[111px] h-[109px] top-0 left-9 object-cover" src="{% static 'images/Logo.svg' %}"
+					alt="Logo" />
+
+				<div class="absolute top-[25px] right-[50px] text-[58.7px] font-teko">
+					<div class="hidden xxl:flex space-x-16 text-[#e9311f]">
+						<a href="#about" class="hover:text-black">About Us</a>
+						<a href="#team" class="hover:text-black">Our Team</a>
+						<a href="#projects" class="hover:text-black">Past Projects</a>
+						<a href="#faq" class="hover:text-black">FAQ</a>
+					</div>
+
+					<button id="menu-button" class="block xxl:hidden z-20">
+						<img src="{% static 'images/Menu.svg' %}" alt="Close" />
+					</button>
+				</div>
+
+				<div id="dropdown-menu"
+					class="hidden fixed top-0 left-0 w-full h-4/6 bg-white z-10 flex-col justify-center items-center">
+					<button id="exit-button" class="absolute top-[25px] right-[50px] z-20">
+						<img src="{% static 'images/Cross.svg' %}" alt="Close" />
+					</button>
+					<div
+						class="absolute left-1/2 top-5 transform -translate-x-1/2 flex flex-col space-y-4 text-[#e9311f] text-[58.7px] font-teko text-center">
+						<a href="#about" class="hover:text-black inline-block">About Us</a>
+						<a href="#team" class="hover:text-black inline-block">Our Team</a>
+						<a href="#projects" class="hover:text-black inline-block">Past Projects</a>
+						<a href="#faq" class="hover:text-black inline-block">FAQ</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<div
+			class="absolute top-[206px] left-1/2 transform -translate-x-1/2 text-[#ef1500] text-9xl text-center tracking-[-6.4px] leading-[147.1px] font-audiowide [-webkit-text-stroke:0.5px_white]">
+			GLADIATOS
+		</div>
+
+		<p
+			class="absolute top-[346px] left-1/2 transform -translate-x-1/2 w-full max-w-[1253px] text-white text-[72.3px] text-center tracking-[-3.62px] leading-[83.1px] font-audiowide">
+			The Only Humanoid Robotic Team In Universitas Indonesia
+		</p>
+
+		<div class="absolute top-[608px] left-1/2 transform -translate-x-1/2 w-full max-w-[570px]">
+			<p class="text-white text-[64px] text-center tracking-[-3.2px] leading-[73.5px] font-audiowide">
+				Meet Our Robots
+			</p>
+		</div>
+
+		<img class="absolute top-[696px] left-1/2 transform -translate-x-1/2 pl-[234px] pr-[234px] box-content"
+			src="{% static 'images/Group 38.svg' %}" alt="Group" />
+
+		<div class="absolute w-[954px] h-[146px] top-[1153px] left-1/2 transform -translate-x-1/2">
+			<div class="relative w-[944px] h-[135px] top-[13px] left-[5px]">
+				<img class="absolute w-[862px] h-32 left-1/2 transform -translate-x-1/2"
+					src="{% static 'images/Group 39.svg' %}" alt="Group" />
+
+				<div
+					class="absolute w-[362px] h-[108px] top-[35px] left-[290px] text-[#e9311f] text-6xl text-center font-audiowide">
+					Darput
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- About Us Section -->
+	<section id="about" class="absolute top-[1385px] w-full h-[1024px] left-0 justify-center items-center">
+		<div class="flex justify-center items-center relative">
+			<img class="absolute w-full top-0 left-0 object-cover" alt="Group"
+				src="{% static 'images/Group 33.svg' %}" />
+			<img class="h-[100px] w-[480px] absolute top-[18px]" alt="Group" src="{% static 'images/Group 36.svg' %}" />
+			<div
+				class="absolute top-[23px] font-audiowide font-normal text-black text-[64px] tracking-[0] leading-[normal]">
+				About Us
+			</div>
+		</div>
+		<img class="absolute w-[666px] h-[506px] top-[337px] left-[59px]" alt="Group"
+			src="{% static 'images/Group 7.svg' %}" />
+
+
+		<div class="absolute w-[603px] h-[284px] top-[222px] right-[60px]">
+			<img class="absolute w-full top-0 left-0 object-cover" alt="Group"
+				src="{% static 'images/Group 6.svg' %}" />
+			<div
+				class="absolute w-[244px] top-[85px] left-[42px] font-teko font-medium text-black text-[40px] tracking-[2.00px] leading-[normal]">
+				Gladiatos UI
+			</div>
+			<p
+				class="absolute w-[535px] top-[141px] left-[45px] font-teko text-black text-2xl tracking-[0.48px] leading-[normal]">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non
+				justo mollis, vulputate turpis ac, mollis neque. Donec egestas aliquam
+				tellus, in convallis augue imperdiet et. Curabitur id euismod massa.
+			</p>
+		</div>
+
+		<div class="absolute w-[603px] h-[284px] top-[568px] right-[60px]">
+			<img class="absolute w-full top-0 left-0 object-cover" alt="Group"
+				src="{% static 'images/Group 37.svg' %}" />
+			<div
+				class="absolute w-[370px] top-[43px] left-[176px] font-teko font-medium text-black text-[38px] tracking-[1px] leading-[normal]">
+				A Message from Our Leader
+			</div>
+			<p
+				class="absolute w-[391px] top-[113px] left-[177px] font-teko text-black text-[20px] tracking-[0.48px] leading-[normal]">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non
+				justo mollis, vulputate turpis ac, mollis neque. Donec egestas aliquam
+				tellus, in convallis augue imperdiet et. Curabitur id euismod massa.
+				Mauris condimentum lectus a pretium dapibus. Nunc vitae neque vitae
+				sem commodo ultrices nec at eros. Nullam bibendum elementum metus, at
+				ultricies felis accumsan in.
+			</p>
+		</div>
+	</section>
+
+	<!-- Our Team Section -->
+	<section id="team" class="absolute top-[2475px] w-full h-[1024px] left-0">
+		<div class="flex justify-center items-center relative">
+			<img class="h-[100px] w-[510px] absolute top-[18px]" alt="Group" src="{% static 'images/Group 13.svg' %}" />
+
+			<div class="h-[732px] w-[421px] absolute top-[350px] z-10">
+				<div class="absolute left-[34px] bottom-[65.5px] z-10 text-[35px] text- font-teko">
+					Anonymous, FK 2023
+				</div>
+				<img class="absolute z-0" alt="Group" src="{% static 'images/Group 15.svg' %}" />
+			</div>
+
+			<div class="h-[664px] w-[381px] absolute top-[385px] left-1/2 -translate-x-1/2 ml-[-300px] z-0">
+				<div class="absolute left-[34px] bottom-[65.5px] z-10 text-[35px] text-black font-teko">
+					Anonymous, FK 2023
+				</div>
+				<img class="absolute z-0" alt="Group" src="{% static 'images/Group 30.svg' %}" />
+			</div>
+
+			<div class="h-[664px] w-[381px] absolute top-[385px] left-1/2 -translate-x-1/2 ml-[300px] z-0">
+				<div class="absolute left-[34px] bottom-[65.5px] z-10 text-[35px] text-black font-teko">
+					Anonymous, FK 2023
+				</div>
+				<img class="absolute z-0" alt="Group" src="{% static 'images/Group 30.svg' %}" />
+			</div>
+
+			<div
+				class="absolute top-[23px] font-audiowide font-normal text-black text-[64px] tracking-[0] leading-[normal]">
+				Our Team
+			</div>
+
+			<div class="absolute w-[526px] h-[98px] top-[220px]">
+				<img class="absolute w-full top-0 left-0 object-cover" alt="Group"
+					src="{% static 'images/Rectangle 24.svg' %}" />
+				<div class="flex justify-center space-x-4">
+					<div class="relative left-[-20px] top-[-20px]">
+						<img alt="Group" src="{% static 'images/Group 42.svg' %}" />
+					</div>
+					<div class="relative left-[-20px] top-[-40px]">
+						<img alt="Group" src="{% static 'images/Group 41.svg' %}" />
+					</div>
+					<div class="relative left-[-20px] top-[-20px]">
+						<img alt="Group" src="{% static 'images/Group 40.svg' %}" />
+					</div>
+					<div class="relative left-[-20px] top-[-20px]">
+						<img alt="Group" src="{% static 'images/Group 43.svg' %}" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Past Projects Section -->
+	<section id="projects" class="absolute top-[3675px] w-full h-[1200px] left-0">
+		<div class="flex justify-center items-center relative">
+			<img class="h-[90px] w-[724px] absolute top-[18px]" alt="Group"
+				src="{% static 'images/Group 13 copy.svg' %}" />
+
+			<div class="h-[718px] w-[438px] absolute top-[200px] left-1/2 -translate-x-1/2 ml-[-420px]">
+				<div class="absolute left-[30px] top-[265px] z-10 text-[35px] text-[#ff1111] font-teko font-medium">
+					About Gladiatos
+				</div>
+				<div class="absolute left-[30px] top-[315px] z-10 text-[24px] text-black font-teko w-[320px]">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non justo mollis, vulputate turpis
+					ac, mollis neque. Donec egestas aliquam tellus, in convallis augue imperdiet et. Curabitur id
+					euismod massa.
+				</div>
+				<img class="absolute z-0" alt="Group" src="{% static 'images/Group 11.svg' %}" />
+			</div>
+
+			<div class="h-[703px] w-[468px] absolute top-[200px]">
+				<div class="absolute left-[94px] top-[270px] z-10 text-[35px] text-[#ff1111] font-teko font-medium">
+					About Gladiatos
+				</div>
+				<div class="absolute left-[94px] top-[320px] z-10 text-[24px] text-black font-teko w-[320px]">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non justo mollis, vulputate turpis
+					ac, mollis neque. Donec egestas aliquam tellus, in convallis augue imperdiet et. Curabitur id
+					euismod massa.
+				</div>
+				<img class="absolute z-0" alt="Group" src="{% static 'images/Group 14.svg' %}" />
+			</div>
+
+			<div class="h-[732px] w-[421px] absolute top-[195px] left-1/2 -translate-x-1/2 ml-[500px]">
+				<div class="absolute left-[34px] top-[275px] z-10 text-[35px] text-[#ff1111] font-teko font-medium">
+					About Gladiatos
+				</div>
+				<div class="absolute left-[34px] top-[325px] z-10 text-[24px] text-black font-teko w-[320px]">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non justo mollis, vulputate turpis
+					ac, mollis neque. Donec egestas aliquam tellus, in convallis augue imperdiet et. Curabitur id
+					euismod massa.
+				</div>
+				<img class="absolute z-0" alt="Group" src="{% static 'images/Group 15 copy.svg' %}" />
+			</div>
+
+			<div
+				class="absolute top-[20px] font-audiowide font-normal text-black text-[64px] tracking-[0] leading-[normal]">
+				Past&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Projects
+			</div>
+		</div>
+	</section>
+
+	<!-- FAQ Section -->
+	<section id="faq" class="absolute top-[4775px] w-full h-[1024px] left-0">
+		<div class="flex justify-center items-center relative">
+			<img class="w-full absolute left-0" alt="Group" src="{% static 'images/Group 17.svg' %}" />
+
+			<div class="flex flex-col justify-center space-y-20 absolute top-[174px]">
+				<div class="h-[114px] w-[1338px] relative">
+					<div class="absolute left-[30px] top-[25px] z-10 text-[40px] text-black font-teko">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					</div>
+					<img class="absolute z-0" alt="Group" src="{% static 'images/Group 25.svg' %}" />
+				</div>
+				<div class="h-[114px] w-[1338px] relative">
+					<div class="absolute left-[30px] top-[25px] z-10 text-[40px] text-black font-teko">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					</div>
+					<img class="absolute z-0" alt="Group" src="{% static 'images/Group 25.svg' %}" />
+				</div>
+				<div class="h-[114px] w-[1338px] relative">
+					<div class="absolute left-[30px] top-[25px] z-10 text-[40px] text-black font-teko">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					</div>
+					<img class="absolute z-0" alt="Group" src="{% static 'images/Group 25.svg' %}" />
+				</div>
+				<div class="h-[114px] w-[1338px] relative">
+					<div class="absolute left-[30px] top-[25px] z-10 text-[40px] text-black font-teko">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					</div>
+					<img class="absolute z-0" alt="Group" src="{% static 'images/Group 25.svg' %}" />
+				</div>
+			</div>
+
+			<div
+				class="absolute left-[264px] font-audiowide font-normal text-black text-[64px] tracking-[0] leading-[normal]">
+				FAQ
+			</div>
+		</div>
+	</section>
+
+	<footer class="absolute top-[5775px] w-full left-0">
+		<img class="w-full absolute left-0" alt="Group" src="{% static 'images/Group 24.svg' %}" />
+		<img class="absolute w-[111px] h-[109px] top-[50px] ml-[25px] object-cover" src="{% static 'images/Logo.svg' %}"
+			alt="Logo" />
+		<div class="absolute top-[72px] right-0 flex gap-[50px] items-center pr-[25px]">
+			<img class="w-[57px] h-[57px] object-cover" src="{% static 'images/instagram.svg' %}" alt="Instagram" />
+			<img class="w-[50px] h-[53px] object-cover" src="{% static 'images/phone.svg' %}" alt="Phone" />
+			<img class="w-[60px] h-[60px] object-cover" src="{% static 'images/linkedin.svg' %}" alt="LinkedIn" />
+			<img class="w-[66px] h-[66px] object-cover" src="{% static 'images/line.svg' %}" alt="LINE" />
+		</div>
+	</footer>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			var menu = document.getElementById("dropdown-menu");
+			var menuButton = document.getElementById("menu-button");
+			var exitButton = document.getElementById("exit-button");
+
+			if (menuButton && exitButton && menu) {
+				menuButton.addEventListener("click", function () {
+					menu.classList.remove("hidden");
+				});
+
+				exitButton.addEventListener("click", function () {
+					menu.classList.add("hidden");
+				});
+			} else {
+				console.error("Menu button or exit button not found!");
+			}
+		});
+	</script>
+</body>
+
+</html>

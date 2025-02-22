@@ -1,0 +1,9 @@
+{
+    "version": 2,
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/myproject/myapp/templates/index.html"
+      }
+    ]
+  }
