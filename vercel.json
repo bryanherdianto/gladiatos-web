@@ -9,7 +9,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "/myproject/myapp/templates/index.html"
+            "dest": "/myproject/theme/static/templates/index.html"
         }
     ]
 }
