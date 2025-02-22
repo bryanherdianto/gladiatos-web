@@ -8,6 +8,10 @@
     ],
     "routes": [
         {
+            "src": "/myproject/theme/static/(.*)",
+            "dest": "/myproject/theme/static/$1"
+        },
+        {
             "src": "/(.*)",
             "dest": "/myproject/theme/static/templates/index.html"
         }
