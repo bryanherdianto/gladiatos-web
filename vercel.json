@@ -1,9 +1,15 @@
 {
     "version": 2,
+    "builds": [
+        {
+            "src": "myproject/theme/static/**",
+            "use": "@vercel/static"
+        }
+    ],
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/myproject/myapp/templates/index.html"
-      }
+        {
+            "src": "/(.*)",
+            "dest": "/myproject/myapp/templates/index.html"
+        }
     ]
-  }
+}
