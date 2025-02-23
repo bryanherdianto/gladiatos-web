@@ -4,11 +4,16 @@ import sys
 
 # Regular expression to match Django's {% static %} tag
 STATIC_TAG_REGEX = r'\{\%\s*static\s+\'(.*?)\'\s*\%\}'
+# Regular expression to match {% load ... %}
+LOAD_TAG_REGEX = r'\{\%\s*load\s+.*?\s*\%\}'
+# Regular expression to match {% tailwind_css %}
+TAILWIND_CSS_REGEX = r'\{\%\s*tailwind_css\s*\%\}'
 
 def replace_static_tags(input_file_path, output_file_path, static_dir):
     """
     Replaces all occurrences of {% static 'path/to/file' %} in the input file
-    with the absolute path to the file in the static directory, and writes
+    with the absolute path to the file in the static directory, removes specific
+    Django template tags ({% load ... %} and {% tailwind_css %}), and writes
     the updated content to a new output file.
     """
     try:
@@ -22,15 +27,21 @@ def replace_static_tags(input_file_path, output_file_path, static_dir):
             absolute_path = os.path.join(static_dir, relative_path).replace("\\", "/")  # Construct the full path
             return f'{absolute_path}'  # Return the updated path with one pair of quotes
 
+        # Replace {% static 'path/to/file' %} tags
         updated_content = re.sub(STATIC_TAG_REGEX, replace_match, content)
+
+        # Remove {% load ... %} tags
+        updated_content = re.sub(LOAD_TAG_REGEX, '', updated_content)
+
+        # Remove {% tailwind_css %} tags
+        updated_content = re.sub(TAILWIND_CSS_REGEX, '', updated_content)
 
         # Write the updated content to the output file
         with open(output_file_path, 'w', encoding='utf-8') as file:
-            file.write(updated_content)
+            file.write(updated_content.strip())  # Use .strip() to remove any leading/trailing whitespace
 
         print(f"Processed: {input_file_path}")
         print(f"New file created: {output_file_path}")
-
     except Exception as e:
         print(f"Error processing {input_file_path}: {e}")
 
@@ -57,5 +68,4 @@ if __name__ == "__main__":
 
     # Process the specified HTML file and create a new output file
     replace_static_tags(input_file_path, output_file_path, static_dir)
-
     print("File processed successfully!")

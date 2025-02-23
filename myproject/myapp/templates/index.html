@@ -1,7 +1,7 @@
 {% load static tailwind_tags %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
 	<meta charset="UTF-8" />
@@ -24,6 +24,14 @@
 			font-family: "Audiowide", serif;
 			font-weight: 400;
 			font-style: normal;
+		}
+
+		.cursor-pointer {
+			transition: top 0.3s ease;
+		}
+
+		.isactive {
+			top: -40px !important;
 		}
 	</style>
 	{% tailwind_css %}
@@ -184,17 +192,17 @@
 				<img class="absolute w-full top-0 left-0 object-cover" alt="Group"
 					src="{% static 'images/Rectangle 24.svg' %}" />
 				<div class="flex justify-center space-x-4">
-					<div class="relative left-[-20px] top-[-20px]">
-						<img alt="Group" src="{% static 'images/Group 42.svg' %}" />
+					<div class="relative left-[-20px] top-[-20px] cursor-pointer" onclick="toggleImage(this)">
+						<img data-id="image1" alt="Group" src="{% static 'images/Group 42.svg' %}" />
 					</div>
-					<div class="relative left-[-20px] top-[-40px]">
-						<img alt="Group" src="{% static 'images/Group 41.svg' %}" />
+					<div class="relative left-[-20px] top-[-20px] cursor-pointer" onclick="toggleImage(this)">
+						<img data-id="image2" alt="Group" src="{% static 'images/Group 41.svg' %}" />
 					</div>
-					<div class="relative left-[-20px] top-[-20px]">
-						<img alt="Group" src="{% static 'images/Group 40.svg' %}" />
+					<div class="relative left-[-20px] top-[-20px] cursor-pointer" onclick="toggleImage(this)">
+						<img data-id="image3" alt="Group" src="{% static 'images/Group 40.svg' %}" />
 					</div>
-					<div class="relative left-[-20px] top-[-20px]">
-						<img alt="Group" src="{% static 'images/Group 43.svg' %}" />
+					<div class="relative left-[-20px] top-[-20px] cursor-pointer" onclick="toggleImage(this)">
+						<img data-id="image4" alt="Group" src="{% static 'images/Group 43.svg' %}" />
 					</div>
 				</div>
 			</div>
@@ -319,6 +327,16 @@
 				console.error("Menu button or exit button not found!");
 			}
 		});
+
+		function toggleImage(clickedElement) {
+			// Remove the 'isactive' class from all images
+			document.querySelectorAll('.cursor-pointer').forEach(item => {
+				item.classList.remove('isactive');
+			});
+
+			// Add the 'isactive' class to the clicked image's container
+			clickedElement.classList.add('isactive');
+		}
 	</script>
 </body>
 
