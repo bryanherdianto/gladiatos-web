@@ -12,6 +12,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Teko:wght@300..700&display=swap"
 		rel="stylesheet" />
 	<link href="myproject/theme/static/css/dist/styles.css" rel="stylesheet" />
+	<link rel="icon" type="image/png" href="{% static 'images/icon_web_gladiatos.svg' %}">
 	<style>
 		.font-teko {
 			font-family: "Teko", serif;
@@ -33,6 +34,10 @@
 		.isactive {
 			top: -40px !important;
 		}
+
+		.svg-red {
+        filter: brightness(0) saturate(100%) invert(27%) sepia(97%) saturate(7493%) hue-rotate(357deg) brightness(104%) contrast(104%);
+    }
 	</style>
 	{% tailwind_css %}
 </head>
@@ -192,17 +197,21 @@
 				<img class="absolute w-full top-0 left-0 object-cover" alt="Group"
 					src="{% static 'images/Rectangle 24.svg' %}" />
 				<div class="flex justify-center space-x-4">
-					<div class="relative left-[-20px] top-[-20px] cursor-pointer" onclick="toggleImage(this)">
-						<img data-id="image1" alt="Group" src="{% static 'images/Group 42.svg' %}" />
+					<div class="relative left-[-20px] top-[-20px] cursor-pointer w-[121px]" onclick="toggleImage(this)">
+						<img class="absolute z-0" alt="Group" src="{% static 'images/Rectangle 20.svg' %}" />
+						<img class="absolute z-10 top-[14px] left-[25px]" alt="Group" src="{% static 'images/programming.svg' %}" />
 					</div>
-					<div class="relative left-[-20px] top-[-20px] cursor-pointer" onclick="toggleImage(this)">
-						<img data-id="image2" alt="Group" src="{% static 'images/Group 41.svg' %}" />
+					<div class="relative left-[-20px] top-[-20px] cursor-pointer w-[121px]" onclick="toggleImage(this)">
+						<img class="absolute z-0" alt="Group" src="{% static 'images/Rectangle 20.svg' %}" />
+						<img class="absolute z-10 top-[17px] left-[28px]" alt="Group" src="{% static 'images/electrical.svg' %}" />
 					</div>
-					<div class="relative left-[-20px] top-[-20px] cursor-pointer" onclick="toggleImage(this)">
-						<img data-id="image3" alt="Group" src="{% static 'images/Group 40.svg' %}" />
+					<div class="relative left-[-20px] top-[-20px] cursor-pointer w-[121px]" onclick="toggleImage(this)">
+						<img class="absolute z-0" alt="Group" src="{% static 'images/Rectangle 20.svg' %}" />
+						<img class="absolute z-10 top-[16px] left-[27px]" alt="Group" src="{% static 'images/manager.svg' %}" />
 					</div>
-					<div class="relative left-[-20px] top-[-20px] cursor-pointer" onclick="toggleImage(this)">
-						<img data-id="image4" alt="Group" src="{% static 'images/Group 43.svg' %}" />
+					<div class="relative left-[-20px] top-[-20px] cursor-pointer w-[121px]" onclick="toggleImage(this)">
+						<img class="absolute z-0" alt="Group" src="{% static 'images/Rectangle 20.svg' %}" />
+						<img class="absolute z-10 top-[19px] left-[29px]" alt="Group" src="{% static 'images/gears.svg' %}" />
 					</div>
 				</div>
 			</div>
@@ -329,14 +338,20 @@
 		});
 
 		function toggleImage(clickedElement) {
-			// Remove the 'isactive' class from all images
-			document.querySelectorAll('.cursor-pointer').forEach(item => {
-				item.classList.remove('isactive');
-			});
+            // Remove the 'isactive' and 'svg-red' classes from all images
+            document.querySelectorAll('.cursor-pointer').forEach(item => {
+                item.classList.remove('isactive');
+                const z0Image = item.querySelector('.z-0'); // Find the z-0 image
+                if (z0Image) z0Image.classList.remove('svg-red');
+            });
 
-			// Add the 'isactive' class to the clicked image's container
-			clickedElement.classList.add('isactive');
-		}
+            // Add the 'isactive' class to the clicked container
+            clickedElement.classList.add('isactive');
+
+            // Add the 'svg-red' class to the z-0 image inside the clicked container
+            const z0Image = clickedElement.querySelector('.z-0'); // Find the z-0 image
+            if (z0Image) z0Image.classList.add('svg-red');
+        }
 	</script>
 </body>
 
