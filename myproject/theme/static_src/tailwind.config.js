@@ -45,6 +45,11 @@ module.exports = {
         extend: {
             screens: {
                 'xxl': '1400px',
+                'ms': '320px',
+                'mm': '375px',
+                'ml': '425px',
+                'mxl': '550px',
+                'lm': '985px',
             }
         },
     },
