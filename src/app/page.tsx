@@ -2,16 +2,14 @@
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronRight } from 'lucide-react';
+import FAQItem from "@/components/FAQItem";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTeamSection, setActiveTeamSection] = useState<string | null>(null);
 
-  // Refs for sections that need animation
-  const hiddenElementsRef = useRef<(HTMLElement | null)[]>([]);
   const navbarRef = useRef<HTMLElement | null>(null);
-  const dropdownMenuRef = useRef<HTMLDivElement | null>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -19,24 +17,6 @@ export default function Home() {
 
   const handleTeamToggle = (section: string) => {
     setActiveTeamSection(section);
-  };
-
-  const handleFaqToggle = (e: React.MouseEvent<HTMLDivElement>) => {
-    const element = e.currentTarget;
-    const polygon = element.querySelector(".polygon230") as HTMLElement;
-
-    if (polygon) {
-      const isRotated = polygon.classList.contains("rotate-90");
-      const initialHeight = parseFloat(window.getComputedStyle(element).height);
-
-      if (isRotated) {
-        polygon.classList.remove("rotate-90");
-        element.style.height = '';
-      } else {
-        polygon.classList.add("rotate-90");
-        element.style.height = `${initialHeight * 2.5}px`;
-      }
-    }
   };
 
   // Intersection Observer for animations
@@ -68,13 +48,11 @@ export default function Home() {
     let lastScrollY = window.scrollY;
 
     const handleScroll = () => {
-      if (navbarRef.current && dropdownMenuRef.current) {
+      if (navbarRef.current) {
         if (window.scrollY > lastScrollY) {
           navbarRef.current.style.transform = "translateY(-100%)";
-          dropdownMenuRef.current.style.transform = "translateY(-300%)";
         } else {
           navbarRef.current.style.transform = "translateY(0)";
-          dropdownMenuRef.current.style.transform = "translateY(0)";
         }
         lastScrollY = window.scrollY;
       }
@@ -97,13 +75,15 @@ export default function Home() {
       >
         <div className={`${isMenuOpen ? "hidden" : "flex"} relative w-full h-[134px] justify-center
         g-cover bg-left max-w-[1440px] mx-auto`} style={{ backgroundImage: "url('/Group 34.svg')" }}>
-          <Image
-            className="absolute w-[111px] h-[109px] top-0 left-9 object-cover"
-            src="/Logo.svg"
-            alt="Logo"
-            width={111}
-            height={109}
-          />
+          <a href="#top">
+            <Image
+              className="absolute w-[111px] h-[109px] top-0 left-9 object-cover"
+              src="/Logo.svg"
+              alt="Logo"
+              width={111}
+              height={109}
+            />
+          </a>
 
           <div className="absolute top-[20px] lg:top-[10px] right-[5%] text-[40px] lg:text-[58.7px] font-teko">
             <div className="hidden md:flex space-x-10 xl:space-x-16 text-[#e9311f]">
@@ -129,7 +109,6 @@ export default function Home() {
 
         {/* Mobile Menu */}
         <div
-          ref={el => { dropdownMenuRef.current = el }}
           id="dropdown-menu"
           className={`${isMenuOpen ? "flex" : "hidden"} relative w-[100vw] z-50 bg-white flex flex-col justify-center items-center pt-[20px]`}
         >
@@ -171,7 +150,7 @@ export default function Home() {
           text-[20px] mm:text-[30px] sm:text-[48px] md:text-[50px] lg:text-[64px]
           text-center
           sm:tracking-[-1px] lg:tracking-[-3.62px] 
-          leading-[30px] md:leading-[60px] lg:leading-[83.1px]
+          leading-[30px] mxl:leading-[40px] md:leading-[60px] lg:leading-[83.1px]
           font-audiowide">
           The Only Humanoid Robotic Team In Universitas Indonesia
         </p>
@@ -188,7 +167,7 @@ export default function Home() {
         </div>
 
         <div className="hide mt-[2vh] flex justify-center">
-          <Image src="/Group 38.svg" alt="Group" width={500} height={300} />
+          <Image src="/Group 38.svg" alt="Group" width={500} height={300} className="w-full h-auto mx-5" />
         </div>
 
         <div className="hide mt-[1vh] flex justify-center">
@@ -217,7 +196,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="w-full flex flex-col md:flex-row justify-between mt-[20vh]">
+          <div className="w-full flex flex-col md:flex-row justify-between mt-[20%]">
             <div className="w-full md:w-1/2 flex justify-center md:justify-start px-4 md:pl-[4vw]">
               <Image className="hide w-[100%]" alt="Group" src="/Group 7.svg" width={500} height={400} />
             </div>
@@ -236,7 +215,7 @@ export default function Home() {
                 </div>
                 <div className="absolute top-[50%] left-[7%] pr-[15px]">
                   <p className="font-teko text-black
-                    text-[12px] mm:text-[14px] ml:text-[18px] mxl:text-[24px] md:text-[14px] lm:text-[20px] xl:text-[24px] 
+                    text-[12px] mm:text-[14px] ml:text-[18px] mxl:text-[24px] md:text-[14px] lg:text-[20px] xl:text-[24px] 
                     tracking-[0.48px] leading-[normal]">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non
                     justo mollis, vulputate turpis ac, mollis neque. Donec egestas aliquam
@@ -249,13 +228,13 @@ export default function Home() {
               <div className="hide relative w-[100%] mt-[30px]">
                 <Image className="w-full" alt="Group" src="/Group 37.svg" width={500} height={200} />
                 <div className="absolute top-[13%] left-[30%] font-teko font-medium text-black 
-                  text-[18px] ml:text-[24px] mxl:text-[30px] md:text-[22px] lm:text-[30px] xxl:text-[38px] 
+                  text-[18px] ml:text-[24px] mxl:text-[30px] md:text-[22px] lg:text-[30px] xxl:text-[38px] 
                   tracking-[1px] leading-[normal]">
                   A Message from Our Leader
                 </div>
                 <div className="absolute top-[30%] left-[30%] pr-[15px]">
                   <p className="font-teko text-black 
-                    text-[10px] mm:text-[13px] ml:text-[15px] mxl:text-[20px] md:text-[11px] lm:text-[16px] xl:text-[20px] 
+                    text-[10px] mm:text-[13px] ml:text-[15px] mxl:text-[20px] md:text-[12px] lg:text-[16px] xl:text-[20px] 
                     tracking-[0.48px] leading-[normal]">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non
                     justo mollis, vulputate turpis ac, mollis neque. Donec egestas aliquam
@@ -271,7 +250,7 @@ export default function Home() {
       </section>
 
       {/* Our Team Section */}
-      <section id="team" className="w-full mt-[25vh] relative">
+      <section id="team" className="w-full mt-[20vh] relative">
         <div className="flex flex-col justify-center items-center relative">
           <div className="relative">
             <Image className="w-[280px] lg:w-full" alt="Group" src="/Group 13.svg" width={526} height={100} />
@@ -287,7 +266,7 @@ export default function Home() {
               src="/Rectangle 24.svg" width={526} height={200} />
             <div className="absolute flex flex-wrap justify-center space-x-2 sm:space-x-3 md:space-x-4">
               <div
-                className={`relative top-[-10px] sm:top-[-15px] md:top-[-20px] cursor-pointer w-[70px] sm:w-[100px] md:w-[121px] ${activeTeamSection === 'programming' ? 'isactive' : ''}`}
+                className={`relative top-[-10px] sm:top-[-15px] md:top-[-20px] cursor-pointer w-[70px] sm:w-[100px] md:w-[121px] transition-translate duration-300 ${activeTeamSection === 'programming' ? 'isactive' : ''}`}
                 onClick={() => handleTeamToggle('programming')}
               >
                 <Image
@@ -396,117 +375,10 @@ export default function Home() {
             </div>
           </div>
 
-          {/* FAQ Item 1 */}
-          <div
-            className="relative w-[80%] ms:h-[20px] mm:h-[25px] ml:h-[30px] mxl:h-[40px] md:h-[50px] lg:h-[70px] xl:h-[100px] cursor-pointer mt-[4%] transition-all duration-500"
-            onClick={handleFaqToggle}
-          >
-            <div className="absolute left-[3%] top-[2px] mxl:top-[5px] md:top-[8px] lm:top-[10px] xl:top-[15px] z-10 
-              text-[10px] mm:text-[14px] ml:text-[16px] mxl:text-[20px] md:text-[30px] lm:text-[35px] xl:text-[40px]
-              text-black font-teko">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </div>
-            {/* Gray Rectangle */}
-            <div
-              className="absolute left-[1.5%] mt-[1.5%] w-full h-full bg-[#bcbcbc] rounded-[1px] md:rounded-[2px] lg:rounded-[4px] xl:rounded-md">
-            </div>
-            {/* Rectangle 22 */}
-            <Image className="absolute z-1" alt="Group" src="/Rectangle 22.svg" width={800} height={100} />
-            {/* Polygon 230 (z-2 image) */}
-            <Image
-              className="polygon230 absolute z-2 right-[2.5%] mt-[1.5%] 
-                h-[10px] mm:h-[15px] mxl:h-[20px] md:h-[30px] lg:h-[40px] xl:h-[50px]
-                transition-transform duration-500"
-              alt="Group"
-              src="/Polygon 230.svg"
-              width={50}
-              height={50}
-            />
-          </div>
-
-          {/* FAQ Item 2 */}
-          <div
-            className="relative w-[80%] ms:h-[20px] mm:h-[25px] ml:h-[30px] mxl:h-[40px] md:h-[50px] lg:h-[70px] xl:h-[100px] cursor-pointer mt-[4%] transition-all duration-500"
-            onClick={handleFaqToggle}
-          >
-            <div className="absolute left-[3%] top-[2px] mxl:top-[5px] md:top-[8px] lm:top-[10px] xl:top-[15px] z-10 
-              text-[10px] mm:text-[14px] ml:text-[16px] mxl:text-[20px] md:text-[30px] lm:text-[35px] xl:text-[40px]
-              text-black font-teko">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </div>
-            {/* Gray Rectangle */}
-            <div
-              className="absolute left-[1.5%] mt-[1.5%] w-full h-full bg-[#bcbcbc] rounded-[1px] md:rounded-[2px] lg:rounded-[4px] xl:rounded-md">
-            </div>
-            {/* Rectangle 22 */}
-            <Image className="absolute z-1" alt="Group" src="/Rectangle 22.svg" width={800} height={100} />
-            {/* Polygon 230 (z-2 image) */}
-            <Image
-              className="polygon230 absolute z-2 right-[2.5%] mt-[1.5%] 
-                h-[10px] mm:h-[15px] mxl:h-[20px] md:h-[30px] lg:h-[40px] xl:h-[50px]
-                transition-transform duration-500"
-              alt="Group"
-              src="/Polygon 230.svg"
-              width={50}
-              height={50}
-            />
-          </div>
-
-          {/* FAQ Item 3 */}
-          <div
-            className="relative w-[80%] ms:h-[20px] mm:h-[25px] ml:h-[30px] mxl:h-[40px] md:h-[50px] lg:h-[70px] xl:h-[100px] cursor-pointer mt-[4%] transition-all duration-500"
-            onClick={handleFaqToggle}
-          >
-            <div className="absolute left-[3%] top-[2px] mxl:top-[5px] md:top-[8px] lm:top-[10px] xl:top-[15px] z-10 
-              text-[10px] mm:text-[14px] ml:text-[16px] mxl:text-[20px] md:text-[30px] lm:text-[35px] xl:text-[40px]
-              text-black font-teko">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </div>
-            {/* Gray Rectangle */}
-            <div
-              className="absolute left-[1.5%] mt-[1.5%] w-full h-full bg-[#bcbcbc] rounded-[1px] md:rounded-[2px] lg:rounded-[4px] xl:rounded-md">
-            </div>
-            {/* Rectangle 22 */}
-            <Image className="absolute z-1" alt="Group" src="/Rectangle 22.svg" width={800} height={100} />
-            {/* Polygon 230 (z-2 image) */}
-            <Image
-              className="polygon230 absolute z-2 right-[2.5%] mt-[1.5%] 
-                h-[10px] mm:h-[15px] mxl:h-[20px] md:h-[30px] lg:h-[40px] xl:h-[50px]
-                transition-transform duration-500"
-              alt="Group"
-              src="/Polygon 230.svg"
-              width={50}
-              height={50}
-            />
-          </div>
-
-          {/* FAQ Item 4 */}
-          <div
-            className="relative w-[80%] ms:h-[20px] mm:h-[25px] ml:h-[30px] mxl:h-[40px] md:h-[50px] lg:h-[70px] xl:h-[100px] cursor-pointer mt-[4%] transition-all duration-500"
-            onClick={handleFaqToggle}
-          >
-            <div className="absolute left-[3%] top-[2px] mxl:top-[5px] md:top-[8px] lm:top-[10px] xl:top-[15px] z-10 
-              text-[10px] mm:text-[14px] ml:text-[16px] mxl:text-[20px] md:text-[30px] lm:text-[35px] xl:text-[40px]
-              text-black font-teko">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </div>
-            {/* Gray Rectangle */}
-            <div
-              className="absolute left-[1.5%] mt-[1.5%] w-full h-full bg-[#bcbcbc] rounded-[1px] md:rounded-[2px] lg:rounded-[4px] xl:rounded-md">
-            </div>
-            {/* Rectangle 22 */}
-            <Image className="absolute z-1" alt="Group" src="/Rectangle 22.svg" width={800} height={100} />
-            {/* Polygon 230 (z-2 image) */}
-            <Image
-              className="polygon230 absolute z-2 right-[2.5%] mt-[1.5%] 
-                h-[10px] mm:h-[15px] mxl:h-[20px] md:h-[30px] lg:h-[40px] xl:h-[50px]
-                transition-transform duration-500"
-              alt="Group"
-              src="/Polygon 230.svg"
-              width={50}
-              height={50}
-            />
-          </div>
+          <FAQItem />
+          <FAQItem />
+          <FAQItem />
+          <FAQItem />
         </div>
       </section>
 
@@ -516,16 +388,16 @@ export default function Home() {
         <div className="absolute inset-0 flex justify-between items-center mt-[3%] px-[2%]">
           <Image className="w-[7%] h-auto" src="/Logo.svg" alt="Logo" width={111} height={109} />
           <div className="flex gap-[15%] lg:gap-[20%] items-center justify-end">
-            <a href="https://www.instagram.com" target="_blank" className="block w-[8%] md:w-[15%] lm:w-[20%]">
+            <a href="https://www.instagram.com" target="_blank" className="block w-[8%] md:w-[15%] lg:w-[20%]">
               <Image className="w-full h-auto" src="/instagram.svg" alt="Instagram" width={50} height={50} />
             </a>
-            <a href="tel:08558866900" className="block w-[8%] md:w-[15%] lm:w-[20%]">
+            <a href="tel:08558866900" className="block w-[8%] md:w-[15%] lg:w-[20%]">
               <Image className="w-full h-auto" src="/phone.svg" alt="Phone" width={50} height={50} />
             </a>
-            <a href="https://www.linkedin.com" target="_blank" className="block w-[8%] md:w-[15%] lm:w-[20%]">
+            <a href="https://www.linkedin.com" target="_blank" className="block w-[8%] md:w-[15%] lg:w-[20%]">
               <Image className="w-full h-auto" src="/linkedin.svg" alt="LinkedIn" width={50} height={50} />
             </a>
-            <a href="https://line.me" target="_blank" className="block w-[8%] md:w-[15%] lm:w-[20%]">
+            <a href="https://line.me" target="_blank" className="block w-[8%] md:w-[15%] lg:w-[20%]">
               <Image className="w-full h-auto" src="/line.svg" alt="LINE" width={50} height={50} />
             </a>
           </div>
@@ -534,4 +406,3 @@ export default function Home() {
     </div>
   );
 }
-

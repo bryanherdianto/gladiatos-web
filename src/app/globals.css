@@ -4,6 +4,11 @@
 @theme {
   --font-teko: 'Teko', sans-serif;
   --font-audiowide: 'Audiowide', sans-serif;
+  --breakpoint-xxl: 1400px;
+  --breakpoint-ms: 320px;
+  --breakpoint-mm: 375px;
+  --breakpoint-ml: 425px;
+  --breakpoint-mxl: 550px;
 }
 
 .hide {
@@ -17,9 +22,16 @@
   transform: translateY(0);
 }
 
-/* Custom styles for team section */
-.isactive .svg-red {
-  filter: invert(21%) sepia(99%) saturate(7414%) hue-rotate(359deg) brightness(97%) contrast(96%);
+.svg-red {
+  filter: invert(62%) sepia(100%) saturate(5000%);
+}
+
+.cursor-pointer {
+  transition: top 0.3s ease;
+}
+
+.isactive {
+  top: -30px;
 }
 
 /* Custom styles for FAQ section */
@@ -29,4 +41,8 @@
 
 .rotate-90 {
   transform: rotate(90deg);
+}
+
+html {
+  scroll-behavior: smooth;
 }
