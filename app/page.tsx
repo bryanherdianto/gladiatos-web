@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from 'lucide-react';
-import FAQItem from "@/components/FAQItem";
+import FAQItem from "../components/FAQItem";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
