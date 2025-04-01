@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from 'lucide-react';
 import FAQItem from "../components/FAQItem";
+import Logo from "../public/Logo.svg";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -77,11 +78,9 @@ export default function Home() {
         g-cover bg-left max-w-[1440px] mx-auto`} style={{ backgroundImage: "url('/Group 34.svg')" }}>
           <a href="#top">
             <Image
-              className="absolute w-[111px] h-[109px] top-0 left-9 object-cover"
-              src="/Logo.svg"
+              className="absolute top-0 left-9 object-cover"
+              src={Logo}
               alt="Logo"
-              width={111}
-              height={109}
             />
           </a>
 
