@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from 'lucide-react';
 import FAQItem from "../components/FAQItem";
+import Group7 from "../public/Group 7.png";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -74,7 +75,7 @@ export default function Home() {
         className="fixed w-full top-0 left-0 flex justify-center transition-transform duration-300 z-20"
       >
         <div className={`${isMenuOpen ? "hidden" : "flex"} relative w-full h-[134px] justify-center
-        g-cover bg-left max-w-[1440px] mx-auto`} style={{ backgroundImage: "url('/Group 34.svg')" }}>
+        bg-cover bg-left max-w-[1440px] mx-auto`} style={{ backgroundImage: "url('/Group 34.png')" }}>
           <a href="#top">
             <Image
               className="absolute w-[111px] h-[109px] top-0 left-9 object-cover"
@@ -138,7 +139,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section id="top" className="overflow-hidden w-full relative">
-        <div className="hide mt-[206px] flex justify-center text-[#ef1500] 
+        <div className="hide mt-[150px] lg:mt-[206px] flex justify-center text-[#ef1500] 
           text-[48px] mm:text-[54px] sm:text-[68px] md:text-[96px] lg:text-[128px]
           text-center 
           ms:tracking-[-1px] md:tracking-[-6.4px] 
@@ -171,9 +172,9 @@ export default function Home() {
         </div>
 
         <div className="hide mt-[1vh] flex justify-center">
-          <div className="relative w-[944px] h-[135px] top-[13px] left-[5px]">
+          <div className="relative w-[944px] h-[165px] top-[13px] left-[5px]">
             <div className="relative">
-              <Image src="/Group 39.svg" alt="Group" width={944} height={135} />
+              <Image src="/Group 39.svg" alt="Group" width={944} height={165} />
               <div
                 className="absolute inset-0 flex justify-center items-center text-[#e9311f] text-2xl ml:text-4xl md:text-6xl text-center font-audiowide">
                 Darput
@@ -189,7 +190,7 @@ export default function Home() {
           {/* About Us header */}
           <div className="w-full flex justify-center items-center relative">
             <Image className="w-full absolute" alt="Group" src="/Group 33.svg" width={1440} height={200} />
-            <Image className="w-[280px] lg:w-[480px] absolute" alt="Group" src="/Group 36.svg" width={480} height={100} />
+            <Image className="w-[280px] lg:w-[480px] absolute" alt="Group" src="/Group 36.png" width={480} height={100} />
             <div className="absolute font-audiowide font-normal text-black 
               text-[35px] lg:text-[64px] tracking-[0] leading-[normal]">
               About Us
@@ -198,7 +199,7 @@ export default function Home() {
 
           <div className="w-full flex flex-col md:flex-row justify-between mt-[20%]">
             <div className="w-full md:w-1/2 flex justify-center md:justify-start px-4 md:pl-[4vw]">
-              <Image className="hide w-[100%]" alt="Group" src="/Group 7.svg" width={500} height={400} />
+              <Image className="hide object-contain" alt="Group" src={Group7} />
             </div>
 
             <div
@@ -226,7 +227,7 @@ export default function Home() {
 
               {/* Second content block */}
               <div className="hide relative w-[100%] mt-[30px]">
-                <Image className="w-full" alt="Group" src="/Group 37.svg" width={500} height={200} />
+                <Image className="w-full" alt="Group" src="/Group 37.png" width={500} height={200} />
                 <div className="absolute top-[13%] left-[30%] font-teko font-medium text-black 
                   text-[18px] ml:text-[24px] mxl:text-[30px] md:text-[22px] lg:text-[30px] xxl:text-[38px] 
                   tracking-[1px] leading-[normal]">
@@ -253,7 +254,7 @@ export default function Home() {
       <section id="team" className="w-full mt-[20vh] relative">
         <div className="flex flex-col justify-center items-center relative">
           <div className="relative">
-            <Image className="w-[280px] lg:w-full" alt="Group" src="/Group 13.svg" width={526} height={100} />
+            <Image className="w-[280px] lg:w-full" alt="Group" src="/Group 13.png" width={526} height={100} />
             <div className="absolute inset-0 flex justify-center items-center hide font-audiowide font-normal text-black 
               text-[35px] lg:text-[64px] 
               tracking-[0] leading-[normal]">
@@ -272,7 +273,7 @@ export default function Home() {
                 <Image
                   className={`absolute z-0 w-full ${activeTeamSection === 'programming' ? 'svg-red' : ''}`}
                   alt="Group"
-                  src="/Rectangle 20.svg"
+                  src="/Rectangle 20.png"
                   width={121}
                   height={80}
                 />
@@ -291,7 +292,7 @@ export default function Home() {
                 <Image
                   className={`absolute z-0 w-full ${activeTeamSection === 'electrical' ? 'svg-red' : ''}`}
                   alt="Group"
-                  src="/Rectangle 20.svg"
+                  src="/Rectangle 20.png"
                   width={121}
                   height={80}
                 />
@@ -310,7 +311,7 @@ export default function Home() {
                 <Image
                   className={`absolute z-0 w-full ${activeTeamSection === 'manager' ? 'svg-red' : ''}`}
                   alt="Group"
-                  src="/Rectangle 20.svg"
+                  src="/Rectangle 20.png"
                   width={121}
                   height={80}
                 />
@@ -329,7 +330,7 @@ export default function Home() {
                 <Image
                   className={`absolute z-0 w-full ${activeTeamSection === 'gears' ? 'svg-red' : ''}`}
                   alt="Group"
-                  src="/Rectangle 20.svg"
+                  src="/Rectangle 20.png"
                   width={121}
                   height={80}
                 />
@@ -384,20 +385,20 @@ export default function Home() {
 
       {/* Footer Section */}
       <footer className="w-full relative mt-[15vh]">
-        <Image className="w-full" alt="Group" src="/Group 24.svg" width={1440} height={200} />
+        <Image className="w-full" alt="Group" src="/Group 24.png" width={1440} height={200} />
         <div className="absolute inset-0 flex justify-between items-center mt-[3%] px-[2%]">
-          <Image className="w-[7%] h-auto" src="/Logo.svg" alt="Logo" width={111} height={109} />
-          <div className="flex gap-[15%] lg:gap-[20%] items-center justify-end">
-            <a href="https://www.instagram.com" target="_blank" className="block w-[8%] md:w-[15%] lg:w-[20%]">
+          <Image className="w-[7%] h-auto" src="/Logo.png" alt="Logo" width={111} height={109} />
+          <div className="flex space-x-[10%] ml:space-x-[15%] lg:space-x-[20%] items-center justify-end">
+            <a href="https://www.instagram.com" target="_blank" className="block w-[5%] md:w-[15%] lg:w-[20%]">
               <Image className="w-full h-auto" src="/instagram.svg" alt="Instagram" width={50} height={50} />
             </a>
-            <a href="tel:08558866900" className="block w-[8%] md:w-[15%] lg:w-[20%]">
+            <a href="tel:08558866900" className="block w-[5%] md:w-[15%] lg:w-[20%]">
               <Image className="w-full h-auto" src="/phone.svg" alt="Phone" width={50} height={50} />
             </a>
-            <a href="https://www.linkedin.com" target="_blank" className="block w-[8%] md:w-[15%] lg:w-[20%]">
+            <a href="https://www.linkedin.com" target="_blank" className="block w-[5%] md:w-[15%] lg:w-[20%]">
               <Image className="w-full h-auto" src="/linkedin.svg" alt="LinkedIn" width={50} height={50} />
             </a>
-            <a href="https://line.me" target="_blank" className="block w-[8%] md:w-[15%] lg:w-[20%]">
+            <a href="https://line.me" target="_blank" className="block w-[5%] md:w-[15%] lg:w-[20%]">
               <Image className="w-full h-auto" src="/line.svg" alt="LINE" width={50} height={50} />
             </a>
           </div>
