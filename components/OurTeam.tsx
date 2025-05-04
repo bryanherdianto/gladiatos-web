@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -37,13 +37,11 @@ function OurTeam() {
   const [activeTeamSection, setActiveTeamSection] = useState<string>('programming');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [, setSlideDirection] = useState<'left' | 'right' | null>(null);
 
   const handleTeamToggle = (section: string) => {
     if (section === activeTeamSection) return;
 
     setIsAnimating(true);
-    setSlideDirection(null);
 
     setTimeout(() => {
       setActiveTeamSection(section);
@@ -62,7 +60,6 @@ function OurTeam() {
     if (isAnimating) return;
 
     setIsAnimating(true);
-    setSlideDirection('left');
 
     setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % currentTeam.length);
@@ -77,7 +74,6 @@ function OurTeam() {
     if (isAnimating) return;
 
     setIsAnimating(true);
-    setSlideDirection('right');
 
     setTimeout(() => {
       setCurrentIndex((prev) => (prev === 0 ? currentTeam.length - 1 : prev - 1));
@@ -86,24 +82,6 @@ function OurTeam() {
       }, 50);
     }, 300);
   };
-
-  // For handling window size detection
-  const [, setIsMobile] = useState(true);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const checkSize = () => {
-        setIsMobile(window.innerWidth < 1024); // lg breakpoint
-      };
-
-      checkSize(); // Run on initial render
-      window.addEventListener('resize', checkSize);
-
-      return () => {
-        window.removeEventListener('resize', checkSize);
-      };
-    }
-  }, []);
 
   return (
     <>
