@@ -9,16 +9,11 @@ import OurTeam from "../components/OurTeam";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeTeamSection, setActiveTeamSection] = useState<string | null>(null);
 
   const navbarRef = useRef<HTMLElement | null>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  };
-
-  const handleTeamToggle = (section: string) => {
-    setActiveTeamSection(section);
   };
 
   // Intersection Observer for animations

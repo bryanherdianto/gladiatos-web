@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-// Team members data with more realistic content
 const teamData = {
   programming: [
     { name: 'Budi Santoso', faculty: 'FTUI', year: '2024', image: '/ourteam.png', role: 'Team Lead' },
@@ -38,7 +37,7 @@ function OurTeam() {
   const [activeTeamSection, setActiveTeamSection] = useState<string>('programming');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [slideDirection, setSlideDirection] = useState<'left' | 'right' | null>(null);
+  const [, setSlideDirection] = useState<'left' | 'right' | null>(null);
 
   const handleTeamToggle = (section: string) => {
     if (section === activeTeamSection) return;
@@ -89,10 +88,9 @@ function OurTeam() {
   };
 
   // For handling window size detection
-  const [isMobile, setIsMobile] = useState(true);
+  const [, setIsMobile] = useState(true);
 
   useEffect(() => {
-    // Check if window is defined (so the code works on server-side)
     if (typeof window !== 'undefined') {
       const checkSize = () => {
         setIsMobile(window.innerWidth < 1024); // lg breakpoint
