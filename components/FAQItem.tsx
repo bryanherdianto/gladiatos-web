@@ -1,45 +1,61 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ChevronUp } from "lucide-react";
 
-const FAQItem = () => {
+interface FAQItemProps {
+    question?: string;
+    answer?: string;
+}
+
+const FAQItem = ({ 
+    question = "Misalkan saya tidak memiliki pengalaman coding, apakah saya tetap bisa belajar di Gladiatos?",
+    answer = "Ya, kami menerima anggota dengan berbagai latar belakang pengalaman. Kami menyediakan pelatihan dan mentoring untuk membantu Anda memulai."
+}: FAQItemProps) => {
     const [isOpen, setIsOpen] = useState(false);
+    const contentRef = useRef<HTMLDivElement>(null);
 
-    const handleFaqToggle = (e: React.MouseEvent<HTMLDivElement>) => {
-        const element = e.currentTarget;
-        const initialHeight = parseFloat(window.getComputedStyle(element).height);
-
-        if (isOpen) {
-            element.style.height = '';
-            setIsOpen(false);
-        } else {
-            element.style.height = `${initialHeight * 2.5}px`;
-            setIsOpen(true);
-        }
+    const handleFaqToggle = () => {
+        setIsOpen(!isOpen);
     };
 
     return (
         <div
-            className={`relative w-[80%] ms:h-[20px] mm:h-[25px] ml:h-[30px] mxl:h-[40px] md:h-[50px] lg:h-[70px] xl:h-[100px] cursor-pointer mt-[4%] transition-all duration-500`}
+            className="relative w-[90%] mt-[4%] transition-all duration-500"
             onClick={handleFaqToggle}
         >
-
-            <div className="absolute left-[1.5%] mt-[1.5%] w-full h-full bg-[#bcbcbc] rounded-[1px] md:rounded-[2px] lg:rounded-[4px] xl:rounded-md"></div>
-
-            <div className="font-teko text-black absolute z-1 
-                            left-[-1px] 
-                            top-[-5px] ml:top-[-10px] lg:top-[-15px] 
-                            mt-[1.5%] w-full ms:h-[20px] mm:h-[25px] ml:h-[30px] mxl:h-[40px] md:h-[50px] lg:h-[70px] xl:h-[100px] 
-                            bg-white rounded-[1px] md:rounded-[2px] lg:rounded-[4px] xl:rounded-md shadow-lg
-                            text-[10px] mm:text-[14px] ml:text-[16px] mxl:text-[20px] md:text-[30px] lm:text-[35px] xl:text-[40px]
-                            flex items-center pl-[2%]
-            ">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                <ChevronUp
-                    className={`absolute z-2 right-[1%]
-                                h-[10px] mm:h-[15px] mxl:h-[20px] md:h-[30px] lg:h-[40px] xl:h-[50px] 
+            {/* Container with relative positioning for proper document flow */}
+            <div className="relative">
+                {/* Question container */}
+                <div 
+                    className="relative z-10 
+                        bg-white rounded-[1px] md:rounded-[2px] lg:rounded-[4px] xl:rounded-md shadow-lg
+                        text-[10px] mm:text-[14px] ml:text-[16px] mxl:text-[20px] md:text-[30px] lm:text-[35px] xl:text-[40px]
+                        font-teko text-black 
+                        pl-[2%] py-[10px] pr-[35px]
+                        min-h-[40px] mm:min-h-[50px] ml:min-h-[60px] md:min-h-[70px] lg:min-h-[90px]
+                        flex items-center cursor-pointer"
+                >
+                    {question}
+                    <ChevronUp
+                        className={`absolute z-20 right-[1%]
+                                h-[15px] mxl:h-[20px] md:h-[30px] lg:h-[40px] xl:h-[50px] 
                                 transition-transform duration-300 w-10 text-[#bcbcbc]
                                 ${isOpen ? "rotate-180" : ""}`}
-                />
+                    />
+                </div>
+                
+                {/* Answer container - conditionally rendered */}
+                {isOpen && (
+                    <div 
+                        ref={contentRef}
+                        className="relative z-10 mt-[15px] mb-[10px]
+                            bg-[#bcbcbc] rounded-[1px] md:rounded-[2px] lg:rounded-[4px] xl:rounded-md shadow-lg
+                            text-[8px] mm:text-[12px] ml:text-[14px] mxl:text-[18px] md:text-[24px] lm:text-[28px] xl:text-[35px]
+                            font-teko text-black 
+                            p-[3%] opacity-90"
+                    >
+                        {answer}
+                    </div>
+                )}
             </div>
         </div>
     );

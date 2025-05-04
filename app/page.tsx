@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import { Menu, X } from 'lucide-react';
 import FAQItem from "../components/FAQItem";
 import Group7 from "../public/Group 7.png";
+import OurTeam from "../components/OurTeam";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -262,90 +263,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="w-full mt-[10vh] md:mt-[15vh] flex justify-center relative">
-            <Image className="w-[350px] md:w-[500px] lg:w-[526px] px-5" alt="Group"
-              src="/Rectangle 24.svg" width={526} height={200} />
-            <div className="absolute flex flex-wrap justify-center space-x-2 sm:space-x-3 md:space-x-4">
-              <div
-                className={`relative top-[-10px] sm:top-[-15px] md:top-[-20px] cursor-pointer w-[70px] sm:w-[100px] md:w-[121px] transition-translate duration-300 ${activeTeamSection === 'programming' ? 'isactive' : ''}`}
-                onClick={() => handleTeamToggle('programming')}
-              >
-                <Image
-                  className={`absolute z-0 w-full ${activeTeamSection === 'programming' ? 'svg-red' : ''}`}
-                  alt="Group"
-                  src="/Rectangle 20.png"
-                  width={121}
-                  height={80}
-                />
-                <Image
-                  className="absolute z-10 w-[50%] mt-[15%] left-[25%]"
-                  alt="Programming"
-                  src="/programming.svg"
-                  width={60}
-                  height={60}
-                />
-              </div>
-              <div
-                className={`relative top-[-10px] sm:top-[-15px] md:top-[-20px] cursor-pointer w-[70px] sm:w-[100px] md:w-[121px] ${activeTeamSection === 'electrical' ? 'isactive' : ''}`}
-                onClick={() => handleTeamToggle('electrical')}
-              >
-                <Image
-                  className={`absolute z-0 w-full ${activeTeamSection === 'electrical' ? 'svg-red' : ''}`}
-                  alt="Group"
-                  src="/Rectangle 20.png"
-                  width={121}
-                  height={80}
-                />
-                <Image
-                  className="absolute z-10 w-[50%] mt-[15%] left-[25%]"
-                  alt="Electrical"
-                  src="/electrical.svg"
-                  width={60}
-                  height={60}
-                />
-              </div>
-              <div
-                className={`relative top-[-10px] sm:top-[-15px] md:top-[-20px] cursor-pointer w-[70px] sm:w-[100px] md:w-[121px] ${activeTeamSection === 'manager' ? 'isactive' : ''}`}
-                onClick={() => handleTeamToggle('manager')}
-              >
-                <Image
-                  className={`absolute z-0 w-full ${activeTeamSection === 'manager' ? 'svg-red' : ''}`}
-                  alt="Group"
-                  src="/Rectangle 20.png"
-                  width={121}
-                  height={80}
-                />
-                <Image
-                  className="absolute z-10 w-[50%] mt-[15%] left-[25%]"
-                  alt="Manager"
-                  src="/manager.svg"
-                  width={60}
-                  height={60}
-                />
-              </div>
-              <div
-                className={`relative top-[-10px] sm:top-[-15px] md:top-[-20px] cursor-pointer w-[70px] sm:w-[100px] md:w-[121px] ${activeTeamSection === 'gears' ? 'isactive' : ''}`}
-                onClick={() => handleTeamToggle('gears')}
-              >
-                <Image
-                  className={`absolute z-0 w-full ${activeTeamSection === 'gears' ? 'svg-red' : ''}`}
-                  alt="Group"
-                  src="/Rectangle 20.png"
-                  width={121}
-                  height={80}
-                />
-                <Image
-                  className="absolute z-10 w-[50%] mt-[15%] left-[25%]"
-                  alt="Gears"
-                  src="/gears.svg"
-                  width={60}
-                  height={60}
-                />
-              </div>
-            </div>
-          </div>
+          <OurTeam />
 
-          {/* Team content will be added here */}
         </div>
       </section>
 
@@ -359,8 +278,35 @@ export default function Home() {
               Past&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Projects
             </div>
           </div>
-
-          {/* Projects content will be added here */}
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-[5vh] md:mt-[10vh] px-4">
+          <div className="bg-white p-5 rounded-xl shadow-md">
+            <div className="bg-gray-300 rounded-xl shadow-md w-full h-60" />
+            <div className="w-full text-start font-teko text-3xl md:text-4xl text-red-500 pt-2 font-medium">
+              About Gladiatos
+            </div>
+            <div className="w-full text-start font-teko text-xl md:text-2xl pt-2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non justo mollis, vulputate turpis ac, mollis neque. Donec egestas aliquam tellus, in convallis augue imperdiet.
+            </div>
+          </div>
+          <div className="bg-white p-5 rounded-xl shadow-md">
+            <div className="bg-gray-300 rounded-xl shadow-md w-full h-60" />
+            <div className="w-full text-start font-teko text-3xl md:text-4xl text-red-500 pt-2 font-medium">
+              About Gladiatos
+            </div>
+            <div className="w-full text-start font-teko text-xl md:text-2xl pt-2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non justo mollis, vulputate turpis ac, mollis neque. Donec egestas aliquam tellus, in convallis augue imperdiet.
+            </div>
+          </div>
+          <div className="bg-white p-5 rounded-xl shadow-md">
+            <div className="bg-gray-300 rounded-xl shadow-md w-full h-60" />
+            <div className="w-full text-start font-teko text-3xl md:text-4xl text-red-500 pt-2 font-medium">
+              About Gladiatos
+            </div>
+            <div className="w-full text-start font-teko text-xl md:text-2xl pt-2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non justo mollis, vulputate turpis ac, mollis neque. Donec egestas aliquam tellus, in convallis augue imperdiet.
+            </div>
+          </div>
         </div>
       </section>
 
@@ -376,10 +322,22 @@ export default function Home() {
             </div>
           </div>
 
-          <FAQItem />
-          <FAQItem />
-          <FAQItem />
-          <FAQItem />
+          <FAQItem
+            question="Misalkan saya tidak memiliki pengalaman coding, apakah saya bisa belajar dari nol tentang coding di Gladiatos?"
+            answer="Ya, kami menerima anggota dengan berbagai latar belakang pengalaman. Kami menyediakan pelatihan dan mentoring untuk membantu Anda memulai. Di Gladiatos, semangat untuk belajar lebih penting dari pengalaman sebelumnya."
+          />
+          <FAQItem
+            question="Bagaimana saya bisa bergabung dengan tim Gladiatos?"
+            answer="Anda dapat bergabung dengan mengikuti proses seleksi kami yang biasanya dibuka pada awal semester. Silakan ikuti media sosial kami untuk informasi terkini tentang pendaftaran anggota baru."
+          />
+          <FAQItem
+            question="Berapa banyak waktu yang perlu saya dedikasikan untuk Gladiatos?"
+            answer="Anggota Gladiatos biasanya menghabiskan sekitar 8-12 jam per minggu untuk pertemuan tim, pelatihan, dan proyek. Namun, komitmen waktu dapat bervariasi tergantung pada peran Anda dalam tim dan jadwal proyek kami."
+          />
+          <FAQItem
+            question="Apakah Gladiatos menyediakan sertifikat keaktifan?"
+            answer="Ya, kami memberikan sertifikat keaktifan bagi anggota yang telah berkontribusi secara signifikan dalam kegiatan dan proyek tim."
+          />
         </div>
       </section>
 
