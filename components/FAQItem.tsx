@@ -28,7 +28,7 @@ const FAQItem = ({
                 <div 
                     className="relative z-10 
                         bg-white rounded-[1px] md:rounded-[2px] lg:rounded-[4px] xl:rounded-md shadow-lg
-                        text-[10px] mm:text-[14px] ml:text-[16px] mxl:text-[20px] md:text-[30px] lm:text-[35px] xl:text-[40px]
+                        text-[14px] ml:text-[16px] mxl:text-[20px] md:text-[30px] lm:text-[35px] xl:text-[40px]
                         font-teko text-black 
                         pl-[2%] py-[10px] pr-[35px]
                         min-h-[40px] mm:min-h-[50px] ml:min-h-[60px] md:min-h-[70px] lg:min-h-[90px]
@@ -49,7 +49,7 @@ const FAQItem = ({
                         ref={contentRef}
                         className="relative z-10 mt-[15px] mb-[10px]
                             bg-[#bcbcbc] rounded-[1px] md:rounded-[2px] lg:rounded-[4px] xl:rounded-md shadow-lg
-                            text-[8px] mm:text-[12px] ml:text-[14px] mxl:text-[18px] md:text-[24px] lm:text-[28px] xl:text-[35px]
+                            text-[14px] mxl:text-[18px] md:text-[24px] lm:text-[28px] xl:text-[35px]
                             font-teko text-black 
                             p-[3%] opacity-90"
                     >

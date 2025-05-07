@@ -311,7 +311,7 @@ export default function Home() {
           <div className="w-full relative">
             <Image className="w-full" alt="Group" src="/Group 17.svg" width={1440} height={100} />
             <div className="absolute left-[20%] inset-0 flex items-center font-audiowide font-normal text-black 
-              text-[25px] mm:text-[35px] lg:text-[64px] 
+              text-[23px] mm:text-[32px] mxl:text-[40px] lg:text-[64px] 
               tracking-[0] leading-[normal]">
               FAQ
             </div>

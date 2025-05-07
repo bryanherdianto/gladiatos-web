@@ -23,7 +23,7 @@
 }
 
 .svg-red {
-  filter: invert(62%) sepia(100%) saturate(5000%);
+  filter: invert(60%) sepia(49%) saturate(6770%) hue-rotate(354deg) brightness(106%) contrast(133%);
 }
 
 .cursor-pointer {

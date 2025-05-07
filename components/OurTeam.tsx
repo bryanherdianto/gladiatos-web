@@ -18,12 +18,12 @@ const teamData = {
     { name: 'Hadi Nugroho', faculty: 'FTUI', year: '2024', image: '/ourteam.png', role: 'Embedded Engineer' },
     { name: 'Indah Sari', faculty: 'FTUI', year: '2022', image: '/ourteam.png', role: 'PCB Designer' },
   ],
-  manager: [
+  managerial: [
     { name: 'Joko Widodo', faculty: 'FEB', year: '2022', image: '/ourteam.png', role: 'Project Manager' },
     { name: 'Kevin Tanoto', faculty: 'FEB', year: '2023', image: '/ourteam.png', role: 'Financial Manager' },
     { name: 'Lisa Anggraeni', faculty: 'FIB', year: '2024', image: '/ourteam.png', role: 'PR Manager' },
   ],
-  gears: [
+  mechanics: [
     { name: 'Mira Sukmawati', faculty: 'FTUI', year: '2022', image: '/ourteam.png', role: 'Mechanical Lead' },
     { name: 'Nando Kusuma', faculty: 'FTUI', year: '2023', image: '/ourteam.png', role: 'CAD Designer' },
     { name: 'Olivia Permata', faculty: 'FTUI', year: '2024', image: '/ourteam.png', role: '3D Modeler' },
@@ -85,7 +85,7 @@ function OurTeam() {
 
   return (
     <>
-      <div className="w-full mt-[5vh] md:mt-[10vh] flex justify-center relative">
+      <div className="w-full mt-[8vh] md:mt-[10vh] flex justify-center relative">
         <Image className="w-[350px] sm:w-[500px] lg:w-[526px] px-5" alt="Group"
           src="/Rectangle 24.svg" width={526} height={200} />
         <div className="absolute flex flex-wrap justify-center space-x-2 sm:space-x-3 md:space-x-4">
@@ -94,14 +94,14 @@ function OurTeam() {
             onClick={() => handleTeamToggle('programming')}
           >
             <Image
-              className={`absolute z-0 w-full ${activeTeamSection === 'programming' ? 'svg-red' : ''}`}
+              className={`absolute z-0 w-full drop-shadow-xl ${activeTeamSection === 'programming' ? 'svg-red' : ''}`}
               alt="Group"
-              src="/Rectangle 20.png"
+              src="/Rectangle 20.svg"
               width={121}
               height={80}
             />
             <Image
-              className="absolute z-10 w-[50%] mt-[15%] left-[25%]"
+              className="absolute z-10 w-[50%] mt-[20%] left-[25%]"
               alt="Programming"
               src="/programming.svg"
               width={60}
@@ -113,14 +113,14 @@ function OurTeam() {
             onClick={() => handleTeamToggle('electrical')}
           >
             <Image
-              className={`absolute z-0 w-full ${activeTeamSection === 'electrical' ? 'svg-red' : ''}`}
+              className={`absolute z-0 w-full drop-shadow-xl ${activeTeamSection === 'electrical' ? 'svg-red' : ''}`}
               alt="Group"
-              src="/Rectangle 20.png"
+              src="/Rectangle 20.svg"
               width={121}
               height={80}
             />
             <Image
-              className="absolute z-10 w-[50%] mt-[15%] left-[25%]"
+              className="absolute z-10 w-[50%] mt-[20%] left-[25%]"
               alt="Electrical"
               src="/electrical.svg"
               width={60}
@@ -128,18 +128,18 @@ function OurTeam() {
             />
           </div>
           <div
-            className={`relative top-[-10px] sm:top-[-15px] md:top-[-20px] cursor-pointer w-[70px] sm:w-[100px] md:w-[121px] ${activeTeamSection === 'manager' ? 'isactive' : ''}`}
-            onClick={() => handleTeamToggle('manager')}
+            className={`relative top-[-10px] sm:top-[-15px] md:top-[-20px] cursor-pointer w-[70px] sm:w-[100px] md:w-[121px] ${activeTeamSection === 'managerial' ? 'isactive' : ''}`}
+            onClick={() => handleTeamToggle('managerial')}
           >
             <Image
-              className={`absolute z-0 w-full ${activeTeamSection === 'manager' ? 'svg-red' : ''}`}
+              className={`absolute z-0 w-full drop-shadow-xl ${activeTeamSection === 'managerial' ? 'svg-red' : ''}`}
               alt="Group"
-              src="/Rectangle 20.png"
+              src="/Rectangle 20.svg"
               width={121}
               height={80}
             />
             <Image
-              className="absolute z-10 w-[50%] mt-[15%] left-[25%]"
+              className="absolute z-10 w-[50%] mt-[20%] left-[25%]"
               alt="Manager"
               src="/manager.svg"
               width={60}
@@ -147,18 +147,18 @@ function OurTeam() {
             />
           </div>
           <div
-            className={`relative top-[-10px] sm:top-[-15px] md:top-[-20px] cursor-pointer w-[70px] sm:w-[100px] md:w-[121px] ${activeTeamSection === 'gears' ? 'isactive' : ''}`}
-            onClick={() => handleTeamToggle('gears')}
+            className={`relative top-[-10px] sm:top-[-15px] md:top-[-20px] cursor-pointer w-[70px] sm:w-[100px] md:w-[121px] ${activeTeamSection === 'mechanics' ? 'isactive' : ''}`}
+            onClick={() => handleTeamToggle('mechanics')}
           >
             <Image
-              className={`absolute z-0 w-full ${activeTeamSection === 'gears' ? 'svg-red' : ''}`}
+              className={`absolute z-0 w-full drop-shadow-xl ${activeTeamSection === 'mechanics' ? 'svg-red' : ''}`}
               alt="Group"
-              src="/Rectangle 20.png"
+              src="/Rectangle 20.svg"
               width={121}
               height={80}
             />
             <Image
-              className="absolute z-10 w-[50%] mt-[15%] left-[25%]"
+              className="absolute z-10 w-[50%] mt-[20%] left-[25%]"
               alt="Gears"
               src="/gears.svg"
               width={60}
@@ -184,7 +184,7 @@ function OurTeam() {
           <div className="flex items-center justify-center">
             <button
               onClick={goPrev}
-              className="p-2 bg-[#e9311f] text-white rounded-full hover:bg-[#c0281a] transition-colors"
+              className="p-2 text-white hover:text-gray-300 transition-colors duration-200"
               disabled={isAnimating}
             >
               <ChevronLeft className="h-6 w-6" />
@@ -201,11 +201,11 @@ function OurTeam() {
                     className="rounded-lg w-full"
                   />
                   <div className="bg-gray-300 w-[70%] h-[70%] absolute left-1/2 transform -translate-x-[53.5%] top-[11%] rounded-md"></div>
-                  <div className="absolute left-1/2 transform -translate-x-[55%] bottom-[11%] font-teko text-center">
+                  <div className="absolute left-1/2 transform -translate-x-[55%] bottom-[6%] mm:bottom-[9%] ml:bottom-[11%] font-teko text-center">
                     <div className="text-xl md:text-2xl font-medium">
                       {currentTeam[currentIndex].name}
                     </div>
-                    <div className="text-sm">
+                    <div className="text-sm mt-2">
                       {currentTeam[currentIndex].faculty} {currentTeam[currentIndex].year}
                     </div>
                     <div className="text-sm text-[#e9311f]">
@@ -218,7 +218,7 @@ function OurTeam() {
 
             <button
               onClick={goNext}
-              className="p-2 bg-[#e9311f] text-white rounded-full hover:bg-[#c0281a] transition-colors"
+              className="p-2 text-white hover:text-gray-300 transition-colors duration-200"
               disabled={isAnimating}
             >
               <ChevronRight className="h-6 w-6" />
