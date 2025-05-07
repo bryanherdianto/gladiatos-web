@@ -15,8 +15,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-black">
-        <div className="bg-center bg-fixed max-w-[1440px] mx-auto" style={{ backgroundImage: "url('/background.svg')" }}>
-          {children}
+        <div className="max-w-[1440px] mx-auto relative">
+          <div className="bg-center -z-1 fixed top-0 w-screen h-screen bg-cover" style={{ backgroundImage: "url('/background.svg')" }}></div>
+          <div className="relative z-10">
+            {children}
+          </div>
         </div>
       </body>
     </html>
