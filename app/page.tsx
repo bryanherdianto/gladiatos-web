@@ -50,9 +50,11 @@ export default function Home() {
         window.requestAnimationFrame(() => {
           if (navbarRef.current) {
             if (window.scrollY > lastScrollY) {
-              navbarRef.current.style.transform = "translateY(-100%)";
+              navbarRef.current.classList.add("navbar-hidden");
+              navbarRef.current.classList.remove("navbar-visible");
             } else {
-              navbarRef.current.style.transform = "translateY(0)";
+              navbarRef.current.classList.add("navbar-visible");
+              navbarRef.current.classList.remove("navbar-hidden");
             }
           }
           lastScrollY = window.scrollY;
@@ -68,7 +70,7 @@ export default function Home() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, []);  
 
   return (
     <div className="flex flex-col max-w-[1440px] mx-auto">
@@ -76,7 +78,7 @@ export default function Home() {
       <nav
         ref={el => { navbarRef.current = el; }}
         id="navbar"
-        className="fixed w-full top-0 left-0 flex justify-center transition-transform duration-900 z-20 will-change-transform"
+        className="fixed w-full top-0 left-0 flex justify-center transition-transform duration-300 z-20 will-change-transform"
       >
         <div className={`${isMenuOpen ? "hidden" : "flex"} relative w-full h-[134px] justify-center
         bg-cover bg-left max-w-[1440px] mx-auto`} style={{ backgroundImage: "url('/navbar.png')" }}>
