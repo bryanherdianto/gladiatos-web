@@ -4,7 +4,8 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Gladiatos UI",
   description: "Gladiatos from Tim Robotika Universitas Indonesia",
-  icons: "/icon_web_gladiatos.svg"
+  icons: "/icon_web_gladiatos.svg",
+  themeColor: "#000000",
 };
 
 export default function RootLayout({
