@@ -10,8 +10,6 @@ import OurTeam from "../components/OurTeam";
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navbarRef = useRef<HTMLElement | null>(null);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -40,45 +38,12 @@ export default function Home() {
     };
   }, []);
 
-  // Scroll handling for navbar
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-  
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          if (navbarRef.current) {
-            if (window.scrollY > lastScrollY) {
-              navbarRef.current.classList.add("navbar-hidden");
-              navbarRef.current.classList.remove("navbar-visible");
-            } else {
-              navbarRef.current.classList.add("navbar-visible");
-              navbarRef.current.classList.remove("navbar-hidden");
-            }
-          }
-          lastScrollY = window.scrollY;
-          ticking = false;
-        });
-  
-        ticking = true;
-      }
-    };
-  
-    window.addEventListener("scroll", handleScroll);
-  
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);  
-
   return (
     <div className="flex flex-col max-w-[1440px] mx-auto">
       {/* Navigation */}
       <nav
-        ref={el => { navbarRef.current = el; }}
         id="navbar"
-        className="fixed w-full top-0 left-0 flex justify-center transition-transform duration-300 z-20 will-change-transform"
+        className="fixed w-full top-0 left-0 flex justify-center z-20"
       >
         <div className={`${isMenuOpen ? "hidden" : "flex"} relative w-full h-[134px] justify-center
         bg-cover bg-left max-w-[1440px] mx-auto`} style={{ backgroundImage: "url('/navbar.png')" }}>
