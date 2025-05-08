@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from 'lucide-react';
 import FAQItem from "../components/FAQItem";
 import Group7 from "../public/Group 7.png";
