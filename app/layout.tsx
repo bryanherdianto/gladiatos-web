@@ -13,9 +13,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-black">
       <body>
-        <div className="max-w-[1440px] mx-auto relative bg-black">
+        <div className="max-w-[1440px] mx-auto relative">
           <div className="bg-center z-1 fixed top-0 w-screen h-screen bg-cover" style={{ backgroundImage: "url('/background.svg')" }}></div>
           <div className="relative z-10">
             {children}
