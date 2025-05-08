@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X } from 'lucide-react';
 import FAQItem from "../components/FAQItem";
 import Group7 from "../public/Group 7.png";
@@ -9,6 +9,7 @@ import OurTeam from "../components/OurTeam";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navbarRef = useRef<HTMLElement | null>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -38,18 +39,51 @@ export default function Home() {
     };
   }, []);
 
+  // Scroll handling for navbar
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+  
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (navbarRef.current) {
+            if (window.scrollY > lastScrollY) {
+              navbarRef.current.classList.add("navbar-hidden");
+              navbarRef.current.classList.remove("navbar-visible");
+            } else {
+              navbarRef.current.classList.add("navbar-visible");
+              navbarRef.current.classList.remove("navbar-hidden");
+            }
+          }
+          lastScrollY = window.scrollY;
+          ticking = false;
+        });
+  
+        ticking = true;
+      }
+    };
+  
+    window.addEventListener("scroll", handleScroll);
+  
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);  
+
   return (
     <div className="flex flex-col max-w-[1440px] mx-auto">
       {/* Navigation */}
       <nav
+        ref={el => { navbarRef.current = el; }}
         id="navbar"
-        className="fixed w-full top-0 left-0 flex justify-center z-20"
+        className="fixed w-full top-0 left-0 flex justify-center transition-transform duration-300 z-20 will-change-transform bg-white drop-shadow-lg"
       >
-        <div className={`${isMenuOpen ? "hidden" : "flex"} relative w-full h-[134px] justify-center
-        bg-cover bg-left max-w-[1440px] mx-auto`} style={{ backgroundImage: "url('/navbar.png')" }}>
+        <div className={`${isMenuOpen ? "hidden" : "flex"} relative w-full h-[80px] md:h-[110px] justify-center
+        bg-cover bg-left max-w-[1440px] mx-auto`}>
           <a href="#top">
             <Image
-              className="absolute w-[111px] h-[109px] top-0 left-9 object-cover"
+              className="absolute size-20 md:size-25 top-0 left-7 md:left-9 object-cover"
               src={"/Logo.png"}
               alt="Logo"
               width={111}
@@ -282,8 +316,8 @@ export default function Home() {
 
       {/* FAQ Section */}
       <section id="faq" className="w-full mt-[15vh] relative">
-        <div className="hide flex flex-col justify-center items-center relative">
-          <div className="w-full relative">
+        <div className="flex flex-col justify-center items-center relative">
+          <div className="hide w-full relative">
             <Image className="w-full" alt="Group" src="/Group 17.svg" width={1440} height={100} />
             <div className="absolute left-[20%] inset-0 flex items-center font-audiowide font-normal text-black 
               text-[23px] mm:text-[32px] mxl:text-[40px] lg:text-[64px] 
