@@ -5,6 +5,12 @@ export const metadata: Metadata = {
   title: "Gladiatos UI",
   description: "Gladiatos from Tim Robotika Universitas Indonesia",
   icons: "/icon_web_gladiatos.svg",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
   themeColor: "#000000",
 };
 
