@@ -43,20 +43,28 @@ export default function Home() {
   // Scroll handling for navbar
   useEffect(() => {
     let lastScrollY = window.scrollY;
-
+    let ticking = false;
+  
     const handleScroll = () => {
-      if (navbarRef.current) {
-        if (window.scrollY > lastScrollY) {
-          navbarRef.current.style.transform = "translateY(-100%)";
-        } else {
-          navbarRef.current.style.transform = "translateY(0)";
-        }
-        lastScrollY = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (navbarRef.current) {
+            if (window.scrollY > lastScrollY) {
+              navbarRef.current.style.transform = "translateY(-100%)";
+            } else {
+              navbarRef.current.style.transform = "translateY(0)";
+            }
+          }
+          lastScrollY = window.scrollY;
+          ticking = false;
+        });
+  
+        ticking = true;
       }
     };
-
+  
     window.addEventListener("scroll", handleScroll);
-
+  
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -68,10 +76,10 @@ export default function Home() {
       <nav
         ref={el => { navbarRef.current = el; }}
         id="navbar"
-        className="fixed w-full top-0 left-0 flex justify-center transition-transform duration-300 z-20"
+        className="fixed w-full top-0 left-0 flex justify-center transition-transform duration-300 z-20 will-change-transform"
       >
         <div className={`${isMenuOpen ? "hidden" : "flex"} relative w-full h-[134px] justify-center
-        bg-cover bg-left max-w-[1440px] mx-auto`} style={{ backgroundImage: "url('/Group 34.png')" }}>
+        bg-cover bg-left max-w-[1440px] mx-auto`} style={{ backgroundImage: "url('/navbar.png')" }}>
           <a href="#top">
             <Image
               className="absolute w-[111px] h-[109px] top-0 left-9 object-cover"
