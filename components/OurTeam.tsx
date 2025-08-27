@@ -64,29 +64,17 @@ function OurTeam() {
   // Navigate to next member (for mobile view)
   const goNext = () => {
     if (isAnimating) return;
-
     setIsAnimating(true);
-
-    setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % currentTeam.length);
-      setTimeout(() => {
-        setIsAnimating(false);
-      }, 50);
-    }, 300);
+    setCurrentIndex((prev) => (prev + 1) % currentTeam.length);
+    setTimeout(() => setIsAnimating(false), 300);
   };
 
   // Navigate to previous member (for mobile view)
   const goPrev = () => {
     if (isAnimating) return;
-
     setIsAnimating(true);
-
-    setTimeout(() => {
-      setCurrentIndex((prev) => (prev === 0 ? currentTeam.length - 1 : prev - 1));
-      setTimeout(() => {
-        setIsAnimating(false);
-      }, 50);
-    }, 300);
+    setCurrentIndex((prev) => (prev === 0 ? currentTeam.length - 1 : prev - 1));
+    setTimeout(() => setIsAnimating(false), 300);
   };
 
   return (
@@ -196,7 +184,7 @@ function OurTeam() {
 
             <div className="mx-4 w-full max-w-[350px]">
               {currentTeam.length > 0 && (
-                <div className={`rounded-lg shadow-md relative flex justify-center items-center ${isAnimating ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}>
+                <div className="rounded-lg shadow-md relative flex justify-center items-center">
                   <Image
                     src="/team/ourteam.png"
                     alt="photo container"
@@ -209,9 +197,9 @@ function OurTeam() {
                     alt={currentTeam[currentIndex].name}
                     width={1000}
                     height={1000}
-                    className="w-[70%] h-[70%] absolute left-1/2 transform -translate-x-[53.5%] top-[11%] rounded-md object-cover"
+                    className={`w-[70%] h-[70%] absolute left-1/2 transform -translate-x-[53.5%] top-[11%] rounded-md object-cover transition-transform duration-300 ${isAnimating ? 'scale-95 opacity-80' : 'scale-100 opacity-100'}`}
                   />
-                  <div className="absolute left-1/2 transform -translate-x-[55%] bottom-[6%] mm:bottom-[9%] ml:bottom-[11%] font-teko text-center">
+                  <div className={`absolute left-1/2 transform -translate-x-[55%] bottom-[6%] mm:bottom-[9%] ml:bottom-[11%] font-teko text-center transition-all duration-300 ${isAnimating ? 'translate-y-2 opacity-80' : 'translate-y-0 opacity-100'}`}>
                     <div className="text-xl md:text-2xl font-medium text-white">
                       {currentTeam[currentIndex].name}
                     </div>
