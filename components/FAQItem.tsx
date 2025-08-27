@@ -6,7 +6,7 @@ interface FAQItemProps {
     answer?: string;
 }
 
-const FAQItem = ({ 
+const FAQItem = ({
     question,
     answer
 }: FAQItemProps) => {
@@ -25,7 +25,7 @@ const FAQItem = ({
             {/* Container with relative positioning for proper document flow */}
             <div className="relative">
                 {/* Question container */}
-                <div 
+                <div
                     className="relative z-10 
                         bg-white rounded-md shadow-lg
                         text-[14px] ml:text-[16px] mxl:text-[20px] md:text-[30px] lm:text-[35px] xl:text-[40px]
@@ -42,10 +42,10 @@ const FAQItem = ({
                                 ${isOpen ? "rotate-180" : ""}`}
                     />
                 </div>
-                
+
                 {/* Answer container */}
                 {isOpen && (
-                    <div 
+                    <div
                         ref={contentRef}
                         className="relative z-10 mt-[15px] mb-[10px]
                             bg-[#bcbcbc] rounded-md shadow-lg

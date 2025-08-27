@@ -198,15 +198,21 @@ function OurTeam() {
               {currentTeam.length > 0 && (
                 <div className={`rounded-lg shadow-md relative flex justify-center items-center ${isAnimating ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}>
                   <Image
-                    src={currentTeam[currentIndex].image}
-                    alt={currentTeam[currentIndex].name}
+                    src="/team/ourteam.png"
+                    alt="photo container"
                     width={500}
                     height={500}
                     className="rounded-lg w-full"
                   />
-                  <div className="bg-gray-300 w-[70%] h-[70%] absolute left-1/2 transform -translate-x-[53.5%] top-[11%] rounded-md"></div>
+                  <Image
+                    src={currentTeam[currentIndex].image}
+                    alt={currentTeam[currentIndex].name}
+                    width={1000}
+                    height={1000}
+                    className="w-[70%] h-[70%] absolute left-1/2 transform -translate-x-[53.5%] top-[11%] rounded-md object-cover"
+                  />
                   <div className="absolute left-1/2 transform -translate-x-[55%] bottom-[6%] mm:bottom-[9%] ml:bottom-[11%] font-teko text-center">
-                    <div className="text-xl md:text-2xl font-medium">
+                    <div className="text-xl md:text-2xl font-medium text-white">
                       {currentTeam[currentIndex].name}
                     </div>
                     <div className="text-sm mt-2">

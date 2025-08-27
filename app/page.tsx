@@ -190,7 +190,7 @@ export default function Home() {
       </section>
 
       {/* About Us Section */}
-      <section id="about" className="w-full mt-[40vh] relative">
+      <section id="about" className="w-full mt-[15%] relative">
         <div className="flex flex-col items-center relative">
           {/* About Us header */}
           <div className="w-full flex justify-center items-center relative">
