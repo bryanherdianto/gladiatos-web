@@ -360,7 +360,7 @@ export default function Home() {
 
       {/* Footer Section */}
       <footer className="w-full relative mt-[15vh]">
-        <Image className="w-full block" alt="footer decoration" src="/footer-decoration.png" width={1440} height={200} />
+        <Image className="w-full block" alt="footer decoration" src="/footer/footer-decoration.png" width={1440} height={200} />
         <div className="bg-[#d5d5d5] flex flex-col items-center py-4">
           <Image className="w-30 h-auto" src="/Logo.png" alt="Logo" width={111} height={109} />
           <div className="flex justify-center gap-4 mb-4">
